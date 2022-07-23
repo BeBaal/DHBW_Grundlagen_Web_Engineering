@@ -6,8 +6,17 @@ const port = process.env.Port || 5000;
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
-    res.write('Hello Node')
-    res.end('Hello World');
+    FileSystem.readFile('index.html', function (error, data) {
+        if (error) {
+            res.writeHead(404)
+            res.write('Error: File Not Found')
+        } else {
+            res.write(data)
+        }
+
+        res.write('Hello Node')
+        res.end('Hello World');
+    })
 });
 
 server.listen(port, hostname, (error) => {
