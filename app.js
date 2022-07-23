@@ -73,8 +73,18 @@ const client = new Client({
 // Aufbau Verbindung zur Datenbank
 client.connect();
 
-// 
-client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) NOT NULL,
+
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+        console.log(JSON.stringify(row));
+    }
+    client.end();
+});
+
+
+//Create Database Table 
+/* client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) NOT NULL,
                                                         lastname VARCHAR(20) NOT NULL,
                                                         mail VARCHAR(40) NOT NULL,
                                                         tel VARCHAR(20) NOT NULL,
@@ -88,7 +98,7 @@ client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) N
     }
     client.end();
 });
-
+ */
 
 /* 
 
