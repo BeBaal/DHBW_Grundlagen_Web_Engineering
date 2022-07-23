@@ -6,7 +6,7 @@ const port = process.env.Port || 5000;
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html');
-    FileSystem.readFile('index.html', function (error, data) {
+    fs.readFile('index.html', function (error, data) {
         if (error) {
             res.writeHead(404)
             res.write('Error: File Not Found')
