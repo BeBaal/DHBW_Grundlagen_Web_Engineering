@@ -30,7 +30,7 @@ app.listen(port, () => console.info(`listening on port ${port}`))
 
 
 
-
+/* 
 
 // Postgres Integration und benötigte Module
 const { Client } = require('pg');
@@ -83,4 +83,4 @@ client.query('SELECT * FROM t_contact_form;', (err, res) => {
         console.log(JSON.stringify(row));
     }
     client.end();
-});
+}); */
