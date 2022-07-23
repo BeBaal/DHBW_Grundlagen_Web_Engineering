@@ -3,15 +3,16 @@
     <head>
         <meta charset="utf-8">
         <title>Mietgaragen Emsland</title>
-        <link rel="stylesheet" href="public/Styles.css">
+        <link rel="stylesheet" href="/public/css/Styles.css">
         <link rel="stylesheet"
-            href="public/https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+            href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
             integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="crossorigin=""
             />
-        <script src="Skripte/TopButton.js"></script>
+        <script src="/public/Skripte/TopButton.js"></script>
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
             integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
-        <script src="Skripte/Map.js"></script>
+        <!-- Muss nach dem fremden Map Skript geladen werden -->
+        <script src="/public/Skripte/Map.js"></script>
         <Cache-Control: max-age=0></Cache-Control:>
     </head>
 
@@ -19,18 +20,18 @@
         <section class="header">
             <header>
                 <figure>
-                    <img src="img/Bild_7.jpg"
-                        alt="img/Bild_8.jpg"
+                    <img src="/public/img/Bild_7.jpg"
+                        alt="/public/img/Bild_8.jpg"
                         class="header">
                     <!--             <figcaption></figcaption> -->
                 </figure>
                 <div class="topnav">
-                    <a href="public/index.html">Startseite</a>
-                    <a href="public/FAQ.html">FAQ</a>
-                    <a href="public/Fotos.html">Fotos</a>
-                    <a href="public/Kontaktformular.html">Kontaktformular</a>
-                    <a href="public/Impressum.html">Impressum</a>
-                    <a href="public/Datenschutzerklärung.html">Datenschutz</a>
+                    <a href="/public/html/index.html">Startseite</a>
+                    <a href="/public/html/FAQ.html">FAQ</a>
+                    <a href="/public/html/Fotos.html">Fotos</a>
+                    <a href="/public/html/Kontaktformular.html">Kontaktformular</a>
+                    <a href="/public/html/Impressum.html">Impressum</a>
+                    <a href="/public/html/Datenschutzerklärung.html">Datenschutz</a>
                 </div>
             </header>
         </section>
@@ -163,16 +164,14 @@
 
     <!-- Linkliste unten auf der Seite -->
     <footer>
-        <a class="footer" href="public/index.html">Startseite</a>
-        <a class="footer" href="public/FAQ.html">FAQ</a>
-        <a class="footer" href="public/Fotos.html">Fotos</a>
-        <a class="footer" href="public/Kontaktformular.html">Kontaktformular</a>
-        <a class="footer" href="public/Impressum.html">Impressum</a>
-        <a class="footer" href="public/Datenschutzerklärung.html">Datenschutz</a>
+        <a class="footer" href="/public/html/index.html">Startseite</a>
+        <a class="footer" href="/public/html/FAQ.html">FAQ</a>
+        <a class="footer" href="/public/html/Fotos.html">Fotos</a>
+        <a class="footer" href="/public/html/Kontaktformular.html">Kontaktformular</a>
+        <a class="footer" href="/public/html/Impressum.html">Impressum</a>
+        <a class="footer" href="/public/html/Datenschutzerklärung.html">Datenschutz</a>
     </footer>
 
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top &#8593
     </button>
-    <script>
-    </script>
 </html>

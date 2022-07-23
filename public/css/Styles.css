@@ -75,10 +75,10 @@ input:inital {
     border-radius: 5px;*/
 }
 
-input:invalid {
+input:valid {
     background-color: ivory;
     border: none;
-    outline: 2px solid red;
+    outline: 2px solid green;
     border-radius: 5px;
 }
 
