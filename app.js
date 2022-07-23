@@ -52,13 +52,12 @@ app.get('/Datenschutz', (req, res) => {
 
 
 
-// Neu
 
 
 
 
 
-/* 
+
 
 // Postgres Integration und benötigte Module
 const { Client } = require('pg');
@@ -89,6 +88,9 @@ client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) N
     }
     client.end();
 });
+
+
+/* 
 
 client.query(`INSERT INTO t_contact_form VALUES 'Max',
                                                 'Mustermann,
