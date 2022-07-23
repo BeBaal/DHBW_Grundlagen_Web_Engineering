@@ -51,18 +51,18 @@ p.Kontaktdaten {
     white-space: pre-line;
 }
 
-a.footer {
-    color: white;
-
-}
 
 footer {
-
+    color: white;
     height: 2em;
     margin-top: 1em;
     text-align: center;
     word-spacing: 20px;
     background-color: #333;
+}
+
+a.footer {
+    color: white;
 
 }
 
