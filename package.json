@@ -2,7 +2,7 @@
     "name": "mietgaragenemsland",
     "version": "1.0.0",
     "description": "Das ist eine Website für Mietgaragen.",
-    "main": "web.js",
+    "main": "app.js",
     "scripts": {
         "start": "nodemon app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +12,12 @@
         "heroku"
     ],
     "author": "bernd-baalmann",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "ejs": "^3.1.8",
+        "express": "^4.18.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19"
+    }
 }
