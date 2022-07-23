@@ -27,8 +27,15 @@ app.listen(port, () => console.info(`listening on port ${port}`))
 
 
 
+
+
+
+
+
+// Postgres Integration und benötigte Module
 const { Client } = require('pg');
 
+// Neuer Client zur Datenbank
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
@@ -36,9 +43,26 @@ const client = new Client({
     }
 });
 
+// Aufbau Verbindung zur Datenbank
 client.connect();
 
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+// 
+client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) NOT NULL,
+                                                        lastname VARCHAR(20) NOT NULL,
+                                                        mail VARCHAR(40) NOT NULL,
+                                                        tel VARCHAR(20) NOT NULL,
+                                                        b_date date NOT NULL,
+                                                        message VARCHAR(100) NOT NULL,
+                                                        confirmation boolean NOT NULL,
+                                                        ); `, (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+        console.log(JSON.stringify(row));
+    }
+    client.end();
+});
+
+client.query('SELECT * FROM t_contact_form;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
         console.log(JSON.stringify(row));
