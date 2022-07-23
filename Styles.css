@@ -82,6 +82,11 @@ img {
     height: auto;
 }
 
+img.header {
+    width: 100%;
+    height: auto;
+}
+
 div.numbertext {
     color: black;
 }

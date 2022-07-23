@@ -1,5 +1,12 @@
+window.addEventListener('load', function () {
+    let slideIndex = 1;
+    showSlides(slideIndex);
+})
+
+
 let slideIndex = 1;
 showSlides(slideIndex);
+
 
 // Next/previous controls
 function plusSlides(n) {

@@ -1,9 +1,10 @@
 {
-    "name": "Mietgaragen_Emsland",
+    "name": "mietgaragenemsland",
     "version": "1.0.0",
     "description": "Das ist eine Website für Mietgaragen.",
     "main": "web.js",
     "scripts": {
+        "start": "nodemon app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
