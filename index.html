@@ -11,6 +11,7 @@
         <script src="Skripte/TopButton.js"></script>
         <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
             integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
+        <script src="Skripte/Map.js"></script>
         <Cache-Control: max-age=0></Cache-Control:>
     </head>
 
@@ -146,6 +147,7 @@
 
         <section>
             <p class="Kontaktdaten">
+                Adresse:
                 Emsland Mietgaragen
                 Südstraße 19a
                 26897 Esterwegen
@@ -172,32 +174,5 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top &#8593
     </button>
     <script>
-        //Get the button
-        var mybutton = document.getElementById("myBtn");
-
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () { scrollFunction() };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-        
-        /* Hier ist der Code für die Map */
-        var map = L.map('map').setView([52.968932166810234, 7.620386952639823], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                    attribution: '© OpenStreetMap'
-                    }).addTo(map);
-
     </script>
 </html>

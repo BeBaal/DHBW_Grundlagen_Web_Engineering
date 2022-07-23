@@ -126,6 +126,7 @@ div.numbertext {
     /* Rounded corners */
     font-size: 18px;
     /* Increase font size */
+    z-index: 2
 }
 
 #myBtn:hover {
@@ -223,7 +224,7 @@ div.numbertext {
     text-align: center;
 }
 
-/* Number text (1/3 etc) */
+/* Number text (1/n etc) */
 .numbertext {
     color: #f2f2f2;
     font-size: 12px;
@@ -266,5 +267,7 @@ div.numbertext {
 }
 
 #map {
+    position: relative;
     height: 180px;
+    z-index: 1
 }
