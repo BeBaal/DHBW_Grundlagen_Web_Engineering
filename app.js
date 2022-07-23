@@ -62,6 +62,21 @@ client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) N
     client.end();
 });
 
+client.query(`INSERT INTO t_contact_form VALUES 'Max',
+                                                'Mustermann,
+                                                'Max.Mustermann@web.de',
+                                                '059541708',
+                                                '20220712',
+                                                'message',
+                                                True,
+                                                ); `, (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+        console.log(JSON.stringify(row));
+    }
+    client.end();
+});
+
 client.query('SELECT * FROM t_contact_form;', (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
