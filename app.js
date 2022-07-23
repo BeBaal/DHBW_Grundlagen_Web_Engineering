@@ -84,7 +84,7 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
 
 
 //Create Database Table 
-/* client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) NOT NULL,
+client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) NOT NULL,
                                                         lastname VARCHAR(20) NOT NULL,
                                                         mail VARCHAR(40) NOT NULL,
                                                         tel VARCHAR(20) NOT NULL,
@@ -98,7 +98,7 @@ client.query('SELECT table_schema,table_name FROM information_schema.tables;', (
     }
     client.end();
 });
- */
+
 
 /* 
 
