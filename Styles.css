@@ -1,17 +1,16 @@
 /*
 Hier werden diverse Einstellungen zu Basiselementen vorgenommen.
 */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: white;
+
+html {
+    padding: 10px
 }
+
+section.header {}
 
 body {
     position: relative;
     top: auto;
-    margin-top: 180px;
     background-color: rgba(10, 10, 10, 0, 5);
 }
 
