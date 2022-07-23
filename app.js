@@ -17,7 +17,6 @@ app.use('/img', express.static(__dirname + 'public/img'))
 
 app.get('', (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
-    res.sendFile(__dirname + '/public/img')
 })
 
 // Listen on Port
