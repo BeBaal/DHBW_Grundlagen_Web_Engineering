@@ -26,30 +26,22 @@ app.listen(port, () => console.info(`listening on port ${port}`))
 
 
 
-/* const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/html');
-    fs.readFile('public/html/index.html', function (error, data) {
-        if (error) {
-            res.writeHead(404)
-            res.write('Error: File Not Found')
-        } else {
-            res.write(data)
-        }
 
-        res.write('Hello Node')
-        res.end('Hello World');
-    })
-});
+const { Client } = require('pg');
 
-server.listen(port, hostname, (error) => {
-
-    if (error) {
-        console.log('Server ist nicht gestartet.', error)
-    } else {
-        console.log(`Server running at http://${hostname}:${port}/`);
+const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
     }
 });
 
+client.connect();
 
- */
+client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+    if (err) throw err;
+    for (let row of res.rows) {
+        console.log(JSON.stringify(row));
+    }
+    client.end();
+});
