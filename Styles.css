@@ -175,7 +175,8 @@ div.numbertext {
 
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: Arial;
 }
 
 
