@@ -100,7 +100,7 @@ div.numbertext {
 }
 
 * {
-    font-family: times;
+    font-family: arial;
     color: black;
 }
 
@@ -174,10 +174,6 @@ div.numbertext {
 }
 
 
-* {
-    box-sizing: border-box;
-    font-family: Arial;
-}
 
 
 
