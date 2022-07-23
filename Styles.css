@@ -6,7 +6,6 @@ html {
     padding: 10px
 }
 
-section.header {}
 
 body {
     position: relative;
@@ -86,8 +85,10 @@ img.header {
     height: auto;
 }
 
+
 div.numbertext {
     color: black;
+    text-align: center;
 }
 
 * {
