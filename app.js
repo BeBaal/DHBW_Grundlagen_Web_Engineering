@@ -15,17 +15,44 @@ app.use('/Skripte', express.static(__dirname + 'public/Skripte'))
 app.use('/img', express.static(__dirname + 'public/img'))
 
 
-app.get('', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html')
-    res.sendFile(__dirname + '/views/Fotos.html')
-})
-
 // Listen on Port
 app.listen(port, () => console.info(`listening on port ${port}`))
 
 
+// Requests from Client will be solved with these HTML pages
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html')
+})
+
+app.get('/index', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html')
+})
+
+app.get('/FAQ', (req, res) => {
+    res.sendFile(__dirname + '/views/FAQ.html')
+})
+
+app.get('/Fotos', (req, res) => {
+    res.sendFile(__dirname + '/views/Fotos.html')
+})
+
+app.get('/Kontaktformular', (req, res) => {
+    res.sendFile(__dirname + '/views/Kontaktformular.html')
+})
+
+app.get('/Impressum', (req, res) => {
+    res.sendFile(__dirname + '/views/Impressum.html')
+})
+
+app.get('/Datenschutz', (req, res) => {
+    res.sendFile(__dirname + '/views/Datenschutzerklärung.html')
+})
 
 
+
+
+
+// Neu
 
 
 
