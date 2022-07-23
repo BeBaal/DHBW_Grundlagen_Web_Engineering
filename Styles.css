@@ -51,12 +51,19 @@ p.Kontaktdaten {
     white-space: pre-line;
 }
 
+a.footer {
+    color: white;
+
+}
 
 footer {
 
+    height: 2em;
     margin-top: 1em;
     text-align: center;
     word-spacing: 20px;
+    background-color: #333;
+
 }
 
 
@@ -127,7 +134,7 @@ div.numbertext {
     /* Rounded corners */
     font-size: 18px;
     /* Increase font size */
-    z-index: 2
+    z-index: 1000
 }
 
 #myBtn:hover {
@@ -271,5 +278,6 @@ div.numbertext {
 #map {
     position: relative;
     height: 180px;
-    z-index: 1
+    z-index: 1,
+
 }
