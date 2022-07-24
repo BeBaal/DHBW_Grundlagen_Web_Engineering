@@ -18,6 +18,8 @@ window.addEventListener('load', function () {
         let l_confirmation = document.getElementById("confirmation")
 
         console.log(l_firstname.value)
+        console.log('Hello World!')
+        console.log(l_lastname)
 
     }
 })

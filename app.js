@@ -54,7 +54,7 @@ app.get('/Datenschutz', (req, res) => {
 
 
 
-
+/* 
 
 
 
@@ -98,7 +98,7 @@ client.query(`CREATE TABLE IF NOT EXISTS t_contact_form (firstname VARCHAR(20) N
     }
     client.end();
 });
-
+ */
 
 /* 
 
