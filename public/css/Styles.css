@@ -3,20 +3,25 @@ Hier werden diverse Einstellungen zu Basiselementen vorgenommen.
 */
 
 html {
-    padding: 10px
+    font-size: 100%;
+    padding: 1rem
 }
 
 
 body {
     position: relative;
-    top: auto;
+    top: fixed;
     background-color: rgba(10, 10, 10, 0, 5);
+}
+
+section.body {
+    max-width: min(100% - 2rem);
+    margin-inline: auto;
 }
 
 h1 {
     background-color: rgb(106, 145, 112);
-    color: black;
-    font-size: 30px;
+    font-size: calc(1.3rem + 3.6vw);
     text-align: center;
     padding: 8px 16px;
 }
@@ -25,36 +30,35 @@ figcaption {
     text-align: center;
 }
 
+p {
+    calc(0.9rem + 1.7vw);
+}
+
 p.Fließtext {
-    color: black;
-    font-size: 22px;
+    calc(0.9rem + 1.7vw);
 }
 
 p.Antwort {
-    color: black;
-    font-size: 22px;
     text-indent: 10px;
     margin-top: 0;
     margin-bottom: 2em;
 }
 
 p.Frage {
-    color: black;
-    font-size: 22px;
+    calc(0.8rem + 1.7vw);
     margin: 0;
 
 }
 
 p.Kontaktdaten {
-    color: black;
-    font-size: 18px;
+    calc(0.9rem + 1.7vw);
     white-space: pre-line;
 }
 
 
 footer {
     color: white;
-    height: 2em;
+    height: 2rem;
     margin-top: 1em;
     text-align: center;
     word-spacing: 20px;
@@ -63,12 +67,14 @@ footer {
 
 a.footer {
     color: white;
+    height: 2rem;
+    margin-top: 2rem;
 
 }
 
 
 
-input:inital {
+input {
     background-color: ivory;
     border: none;
     /*outline: 2px solid red;
@@ -79,6 +85,13 @@ input:valid {
     background-color: ivory;
     border: none;
     outline: 2px solid green;
+    border-radius: 5px;
+}
+
+input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
     border-radius: 5px;
 }
 
@@ -95,13 +108,13 @@ img.header {
 
 
 div.numbertext {
-    color: black;
+
     text-align: center;
 }
 
 * {
     font-family: Arial, sans-serif;
-    color: black;
+
 }
 
 
@@ -122,7 +135,7 @@ div.numbertext {
     /* Remove outline */
     background-color: grey;
     /* Set a background color */
-    color: black;
+
     /* Text color */
     cursor: pointer;
     /* Add a mouse pointer on hover */
@@ -130,7 +143,8 @@ div.numbertext {
     /* Some padding */
     border-radius: 10px;
     /* Rounded corners */
-    font-size: 18px;
+    font-size: calc(0.9rem + 1.7vw);
+
     /* Increase font size */
     z-index: 1000
 }
@@ -145,7 +159,7 @@ div.numbertext {
 .topnav {
     background-color: #333;
     overflow: hidden;
-    height: 3em;
+    height: 3rem;
 }
 
 /* Style the links inside the navigation bar */
@@ -156,13 +170,13 @@ div.numbertext {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: calc(0.9rem + 1.7vw);
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;
-    color: black;
+
 }
 
 /* Add a color to the active/current link */
@@ -175,10 +189,9 @@ div.numbertext {
 
 
 
-
 /* Hier findet sich die Formatierung für die Slideshow auf der Seite Fotos */
 .slideshow-container {
-    max-width: 1000px;
+    max-width: 100%;
     position: relative;
     margin: auto;
 }
@@ -199,7 +212,7 @@ div.numbertext {
     padding: 16px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: calc(0.9rem + 1.7vw);
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -220,7 +233,7 @@ div.numbertext {
 /* Caption text */
 .text {
     color: #f2f2f2;
-    font-size: 15px;
+    font-size: calc(0.9rem + 1.7vw);
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
@@ -231,7 +244,7 @@ div.numbertext {
 /* Number text (1/n etc) */
 .numbertext {
     color: #f2f2f2;
-    font-size: 12px;
+    font-size: calc(0.9rem + 1.7vw);
     padding: 8px 12px;
     position: absolute;
     top: 0;
@@ -276,3 +289,54 @@ div.numbertext {
     z-index: 1,
 
 }
+
+#err {
+    display: none;
+    background: #f54242;
+    border: 1px solid #bd1717;
+    padding: 5px;
+    margin: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+#success {
+    display: none;
+    background: #42f563;
+    border: 1px solid #026c17;
+    padding: 5px;
+    margin: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+
+/* Add a black background color to the bottom navigation */
+.bottomnav {
+    background-color: #333;
+    overflow: hidden;
+    height: 3vw;
+
+}
+
+/* Style the links inside the bottom navigation bar */
+.bottomnav a {
+    float: none;
+    min-width: 16.666%;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+/* Change the color of links on hover */
+.bottomnav a:hover {
+    background-color: #ddd;
+
+}
+
+/* Add a color to the active/current link */
+.bottomnav a.active {
+    background-color: #04AA6D;
+    color: white;

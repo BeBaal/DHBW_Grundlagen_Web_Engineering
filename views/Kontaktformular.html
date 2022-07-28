@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mietgaragenverwaltung Baalmann</title>
         <link rel="stylesheet" href="/css/Styles.css">
         <script src="Skripte/GetFormData.js"></script>
@@ -18,83 +19,87 @@
                     viedeoüberwacht &diams; Lagerflächen flexibel nach Bedaraf
                     erweiterbar </figcaption>
             </figure>
-            <div class="topnav">
+            <nav class="topnav">
                 <a href="/index">Startseite</a>
                 <a href="/FAQ">FAQ</a>
                 <a href="/Fotos">Fotos</a>
                 <a href="/Kontaktformular">Kontaktformular</a>
                 <a href="/Impressum">Impressum</a>
-                <a href="/">Datenschutz</a>
-            </div>
+                <a href="/Datenschutz">Datenschutz</a>
+            </nav>
         </header>
         <h1>Kontaktformular</h1>
     </body>
 
-    <form
-        accept-charset="UTF-8">
-        <fieldset>
-            <label>
-                Vorname
-                <input type="text" name="Vorname" id='firstname' value="Bernd"
-                    maxlength="15"
-                    required>
-            </label>
+
+    <fieldset>
+        <label>
+            Vorname
+            <input type="text" name="Vorname" id='firstname' value="Bernd"
+                maxlength="15"
+                required>
+        </label>
 
 
-            <label>
-                Nachname
-                <input type="text" name="Nachname" id='lastname' maxlength="20"
-                    required>
-            </label>
-        </fieldset>
+        <label>
+            Nachname
+            <input type="text" name="Nachname" id='lastname' maxlength="20"
+                required>
+        </label>
+    </fieldset>
 
-        <fieldset>
-            <label>
-                E-Mail-Adresse
-                <input type="email" name="E-Mail" id='mail' maxlength="40"
-                    required>
-            </label>
-
-
-            <label>
-                Telefonnummer
-                <input type="tel" name="Telefonnummer" maxlength="25" id='tel'
-                    required>
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <label>
-                Starttermin für Miete
-                <input type="date" name="Datum" id='b_date' required>
-            </label>
-
-        </fieldset>
-
-        <fieldset>
-
-            <label>
-                Ihre Nachricht
-                <textarea rows="15" name="Nachricht" id='message' required></textarea>
-            </label>
-
-        </fieldset>
-
-        <fieldset>
-            <label2>
-                <input type="checkbox" name="Datenverarbeitung bestätigt"
-                    id='confirmation' value="Ja" required>
-                Ich bestätige, dass ich mit der Verarbeitung meiner Eingaben
-                zum Zwecke der Anfragebearbeitung, einverstanden bin.
-            </label2>
-
-        </fieldset>
+    <fieldset>
+        <label>
+            E-Mail-Adresse
+            <input type="email" name="E-Mail" id='mail' maxlength="40"
+                required>
+        </label>
 
 
-        <div class="btns">
-            <input type="submit" id="myBtn2" value="Absenden" />
-        </div>
-    </form>
+        <label>
+            Telefonnummer
+            <input type="tel" name="Telefonnummer" maxlength="25" id='tel'
+                required>
+        </label>
+    </fieldset>
+
+    <fieldset>
+        <label>
+            Starttermin für Miete
+            <input type="date" name="Datum" id='b_date' required>
+        </label>
+
+    </fieldset>
+
+    <fieldset>
+
+        <label>
+            Ihre Nachricht
+            <textarea rows="15" name="Nachricht" id='message' required></textarea>
+        </label>
+
+    </fieldset>
+
+    <fieldset>
+        <label2>
+            <input type="checkbox" name="Datenverarbeitung bestätigt"
+                id='confirmation' value="true" required>
+            Ich bestätige, dass ich mit der Verarbeitung meiner Eingaben
+            zum Zwecke der Anfragebearbeitung, einverstanden bin.
+        </label2>
+
+    </fieldset>
+
+
+    <div class="btns">
+        <!-- <input type="submit" id="myBtn2" value="Absenden" /> -->
+        <button id="myBtn2" title="Absenden">Absenden</button>
+    </div>
+
+    <div id="err"></div>
+
+    <div id="success"></div>
+
 
     <section class="footer">
         <figure>
