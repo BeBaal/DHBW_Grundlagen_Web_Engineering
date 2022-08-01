@@ -4,6 +4,7 @@ Hier werden diverse Einstellungen zu Basiselementen vorgenommen.
 
 html {
     font-size: 100%;
+    width: 100%;
     padding: 1rem
 }
 
@@ -14,8 +15,11 @@ body {
     background-color: rgba(10, 10, 10, 0, 5);
 }
 
+section {
+    width: 100%;
+}
+
 section.body {
-    max-width: min(100% - 2rem);
     margin-inline: auto;
 }
 
@@ -31,11 +35,11 @@ figcaption {
 }
 
 p {
-    calc(0.9rem + 1.7vw);
+    font-size: calc(0.9rem + 1.7vw);
 }
 
 p.Fließtext {
-    calc(0.9rem + 1.7vw);
+    font-size: calc(0.9rem + 1.7vw);
 }
 
 p.Antwort {
@@ -45,13 +49,13 @@ p.Antwort {
 }
 
 p.Frage {
-    calc(0.8rem + 1.7vw);
+    font-size: calc(0.8rem + 1.7vw);
     margin: 0;
 
 }
 
 p.Kontaktdaten {
-    calc(0.9rem + 1.7vw);
+    font-size: calc(0.9rem + 1.7vw);
     white-space: pre-line;
 }
 
@@ -59,7 +63,7 @@ p.Kontaktdaten {
 footer {
     color: white;
     height: 2rem;
-    margin-top: 1em;
+    margin-top: 1rem;
     text-align: center;
     word-spacing: 20px;
     background-color: #333;
@@ -340,3 +344,5 @@ div.numbertext {
 .bottomnav a.active {
     background-color: #04AA6D;
     color: white;
+
+}

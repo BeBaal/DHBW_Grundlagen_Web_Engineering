@@ -1,8 +1,51 @@
 // Imports
-const http = require('http');
 const fs = require('fs');
 const express = require('express')
 const app = express()
+
+
+
+
+
+const qrcode = require('qrcode-terminal');
+
+const { Client, LocalAuth } = require('whatsapp-web.js');
+
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
+
+client.on('qr', qr => {
+    qrcode.generate(qr, { small: true });
+});
+
+client.on('ready', () => {
+    console.log('Client is ready!');
+
+    // Number where you want to send the message.
+    const number = "+4917643517790";
+
+    // Your message.
+    const text = "Test123!";
+
+    // Getting chatId from the number.
+    // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
+    const chatId = number.substring(1) + "@c.us";
+
+    // Sending message.
+    client.sendMessage(chatId, text);
+});
+
+
+client.initialize();
+
+
+
+
+
+
+
+
 
 // Definition of Port (first argument for port is for heroku and second for local deployment) and hostname
 const hostname = '127.0.0.1';
@@ -16,7 +59,9 @@ app.use('/img', express.static(__dirname + 'public/img'))
 
 
 // Listen on Port
-app.listen(port, () => console.info(`listening on port ${port}`))
+app.listen(port, () => console.info(`listening
+
+on port ${port}`))
 
 
 // Requests from Client will be solved with these HTML pages
@@ -47,6 +92,24 @@ app.get('/Impressum', (req, res) => {
 app.get('/Datenschutz', (req, res) => {
     res.sendFile(__dirname + '/views/Datenschutzerklärung.html')
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
