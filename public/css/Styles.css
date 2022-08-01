@@ -245,7 +245,7 @@ div.numbertext {
     text-align: center;
 }
 
-/* Number text (1/n etc) */
+/* Number text (1/n etc)  */
 .numbertext {
     color: #f2f2f2;
     font-size: calc(0.9rem + 1.7vw);
