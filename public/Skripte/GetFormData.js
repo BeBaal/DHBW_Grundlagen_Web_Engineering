@@ -2,12 +2,15 @@
     Diese Java Skript ließt die Daten aus dem HTML Form aus und überträgt die Daten zur Datenbank.
 */
 
+
+/* Do this when page is loaded */
 window.addEventListener('load', function () {
-    document.getElementById("myBtn2").addEventListener("click", dataPush);
+    /* Do this when Absenden Button is pushed */
+    document.getElementById("myBtn2").addEventListener("click", validateData);
 
 
-
-    function dataPush() {
+    /*  */
+    function validateData() {
         let l_firstname = document.getElementById("firstname").value
         let l_lastname = document.getElementById("lastname").value
         let l_mail = document.getElementById("mail").value
@@ -49,6 +52,8 @@ window.addEventListener('load', function () {
             console.log(l_b_date)
             console.log(l_message)
             console.log(l_confirmation)
+
+
         } else {
             /* message for unsuccessful data entry */
             let notify = document.getElementById("err");

@@ -2,49 +2,65 @@
 const express = require('express')
 const app = express()
 
+/* Debugging Deklaration */
+const l_firstname = "Bernd"
+const l_lastname = "Baalmann"
+const l_mail = "Bernd.Baalmann@web.de"
+const l_tel = "0594 8749 49499"
+const l_b_date = "01.08.2022"
+const l_message = "Hat seine Freundin ganz doll lieb!"
+const l_confirmation = true
+
+/* Send Whatsapp Message */
+function SendWaMessage(l_firstname,
+    l_lastname,
+    l_mail,
+    l_tel,
+    l_b_date,
+    l_message) {
+
+    const qrcode = require('qrcode-terminal');
+
+    const { Client, LocalAuth } = require('whatsapp-web.js');
+
+    const client = new Client({
+        authStrategy: new LocalAuth()
+    });
+
+    client.on('qr', qr => {
+        qrcode.generate(qr, { small: true });
+    });
+
+    client.on('ready', () => {
+        console.log('Client is ready!');
 
 
+        // Number where you want to send the message.
+        const number = "+4917643517790";
+
+        // Your message.
+        const text = "Es gab am " + l_b_date + " eine neue Anfrage auf der Mietgaragenwebsite von " + l_firstname + " " + l_lastname + " unter der Nummer: " + l_tel + " / Email: " + l_mail + " mit der folgenden Nachricht: " + l_message
+
+        // Getting chatId from the number.
+        // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
+        const chatId = number.substring(1) + "@c.us";
+
+        // Sending message.
+        client.sendMessage(chatId, text);
+    });
 
 
-const qrcode = require('qrcode-terminal');
+    client.initialize();
 
-const { Client, LocalAuth } = require('whatsapp-web.js');
+}
 
-const client = new Client({
-    authStrategy: new LocalAuth()
-});
-
-client.on('qr', qr => {
-    qrcode.generate(qr, { small: true });
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-
-    // Number where you want to send the message.
-    const number = "+4917643517790";
-
-    // Your message.
-    const text = "Test123!";
-
-    // Getting chatId from the number.
-    // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
-    const chatId = number.substring(1) + "@c.us";
-
-    // Sending message.
-    client.sendMessage(chatId, text);
-});
-
-
-client.initialize();
-
-
-
-
-
-
-
-
+/* Send Message */
+SendWaMessage(l_firstname,
+    l_lastname,
+    l_mail,
+    l_tel,
+    l_b_date,
+    l_message)
 
 // Definition of Port (first argument for port is for heroku and second for local deployment) and hostname
 const hostname = '127.0.0.1';
