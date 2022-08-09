@@ -2,6 +2,8 @@
 const express = require('express')
 const app = express()
 
+
+
 /* Debugging Deklaration */
 const l_firstname = "Bernd"
 const l_lastname = "Baalmann"
@@ -10,6 +12,8 @@ const l_tel = "0594 8749 49499"
 const l_b_date = "01.08.2022"
 const l_message = "Hat seine Freundin ganz doll lieb!"
 const l_confirmation = true
+
+
 
 /* Send Whatsapp Message */
 function SendWaMessage(l_firstname,
@@ -61,6 +65,12 @@ SendWaMessage(l_firstname,
     l_tel,
     l_b_date,
     l_message)
+
+
+
+
+
+// Webserver Part
 
 // Definition of Port (first argument for port is for heroku and second for local deployment) and hostname
 const hostname = '127.0.0.1';
