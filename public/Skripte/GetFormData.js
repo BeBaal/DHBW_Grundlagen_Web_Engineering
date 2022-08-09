@@ -1,5 +1,7 @@
 /* 
     Diese Java Skript ließt die Daten aus dem HTML Form aus und überträgt die Daten zur Datenbank.
+    Falls die Eingabe korrekt oder falsch war, wird dem Anwender eine entsprechende Meldung als HMTL Objekt angezeigt.
+    Zusätzlich findet die Übergabe der Daten vom Frontend an das Backend statt.
 */
 
 
@@ -52,18 +54,12 @@ window.addEventListener('load', function () {
             console.log(l_b_date)
             console.log(l_message)
             console.log(l_confirmation)
-
-
         } else {
             /* message for unsuccessful data entry */
             let notify = document.getElementById("err");
             notify.innerHTML = "Bitte kontrollieren Sie Ihre Eingabe. Die rot markierten Felder müssen angepasst werden und das Textfeld darf nicht leer sein.";
             notify.style.display = "block";
-
         }
-
-
-
     }
 })
 
