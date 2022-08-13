@@ -42,7 +42,7 @@ window.addEventListener('load', function () {
         ) {
             /* Message for successful data entry */
             let notify = document.getElementById("success");
-            notify.innerHTML = "Vielen Dank für die Eingabe Ihrer Kontaktinformationen. Wir kontaktieren Sie in Kürze.";
+            notify.innerHTML = "Vielen Dank für die Eingabe Ihrer Anfrage. Wir kontaktieren Sie in Kürze.";
             notify.style.display = "block";
 
             // Debugging Code

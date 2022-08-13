@@ -42,10 +42,6 @@ figcaption {
 }
 
 
-p {}
-
-p.Fließtext {}
-
 p.Antwort {
     text-indent: 10px;
     margin-top: 0;
@@ -200,12 +196,13 @@ div.numbertext {
     width: auto;
     margin-top: -22px;
     padding: 16px;
-    color: white;
+    color: black;
     font-weight: bold;
     font-size: 1em;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
+    border: 1px solid black;
 }
 
 /* Position the "next button" to the right */
@@ -217,7 +214,7 @@ div.numbertext {
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: gray;
 }
 
 /* Caption text */
@@ -233,7 +230,7 @@ div.numbertext {
 
 /* Number text (1/n etc)  */
 .numbertext {
-    color: #f2f2f2;
+    color: #333;
     font-size: 1em;
     padding: 8px 12px;
     position: absolute;

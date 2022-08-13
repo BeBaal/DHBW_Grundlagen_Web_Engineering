@@ -1,4 +1,3 @@
-
 window.addEventListener('load', function () {
 
     //Get the button
@@ -17,8 +16,10 @@ window.addEventListener('load', function () {
 
     // When the user clicks on the button, scroll to the top of the document
     function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0; // Options for different browsers
+        document.documentElement.scrollTop = 0; // Options for different browsers
     }
+
+    document.getElementById("myBtn").addEventListener("click", topFunction);
 
 })
