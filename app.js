@@ -26,7 +26,12 @@ function SendWaMessage(l_firstname,
     const { Client, LocalAuth } = require('whatsapp-web.js');
 
     const client = new Client({
-        authStrategy: new LocalAuth()
+        authStrategy: new LocalAuth(),
+        puppeteer: {
+            args: [
+                '--no-sandbox',
+            ],
+        },
     });
 
     client.on('qr', qr => {
