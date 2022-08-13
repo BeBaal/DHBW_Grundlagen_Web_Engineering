@@ -14,10 +14,10 @@ const l_message = "Hat seine Freundin ganz doll lieb!"
 const l_confirmation = true
 
 
-const browser = await puppeteer.launch({
+/* const browser = await puppeteer.launch({
     headless: false,
     args: ['--no-sandbox', '--disable-setuid-sandbox']
-})
+}) */
 
 
 /* Send Whatsapp Message */

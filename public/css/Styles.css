@@ -25,7 +25,7 @@ section.body {
 
 h1 {
     background-color: rgb(106, 145, 112);
-    font-size: calc(1.3rem + 3.6vw);
+    font-size: calc(1.2rem + 2.4vw);
     text-align: center;
     padding: 8px 16px;
 }
@@ -163,7 +163,7 @@ div.numbertext {
 .topnav {
     background-color: #333;
     overflow: hidden;
-    height: 3rem;
+    height: auto;
 }
 
 /* Style the links inside the navigation bar */
@@ -319,8 +319,7 @@ div.numbertext {
 .bottomnav {
     background-color: #333;
     overflow: hidden;
-    height: 3vw;
-
+    height: auto;
 }
 
 /* Style the links inside the bottom navigation bar */
@@ -331,7 +330,7 @@ div.numbertext {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 1em;
+    font-size: calc(0.9rem + 1.7vw);
 }
 
 /* Change the color of links on hover */
