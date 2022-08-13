@@ -4,8 +4,6 @@ Hier werden diverse Einstellungen zu Basiselementen vorgenommen.
 
 html {
     font-size: 100%;
-    width: 100%;
-    padding: 1rem
 }
 
 
@@ -15,32 +13,38 @@ body {
     background-color: rgba(10, 10, 10, 0, 5);
 }
 
-section {
-    width: 100%;
-}
+
 
 section.body {
     margin-inline: auto;
 }
 
+.footer {
+    margin-top: 1em;
+}
+
 h1 {
     background-color: rgb(106, 145, 112);
-    font-size: calc(1.2rem + 2.4vw);
     text-align: center;
     padding: 8px 16px;
+}
+
+figure {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    margin-bottom: 1em;
 }
 
 figcaption {
     text-align: center;
 }
 
-p {
-    font-size: calc(0.9rem + 1.7vw);
-}
 
-p.Fließtext {
-    font-size: calc(0.9rem + 1.7vw);
-}
+p {}
+
+p.Fließtext {}
 
 p.Antwort {
     text-indent: 10px;
@@ -49,32 +53,14 @@ p.Antwort {
 }
 
 p.Frage {
-    font-size: calc(0.8rem + 1.7vw);
     margin: 0;
-
 }
 
 p.Kontaktdaten {
-    font-size: calc(0.9rem + 1.7vw);
     white-space: pre-line;
 }
 
 
-footer {
-    color: white;
-    height: 2rem;
-    margin-top: 1rem;
-    text-align: center;
-    word-spacing: 20px;
-    background-color: #333;
-}
-
-a.footer {
-    color: white;
-    height: 2rem;
-    margin-top: 2rem;
-
-}
 
 
 
@@ -147,7 +133,7 @@ div.numbertext {
     /* Some padding */
     border-radius: 10px;
     /* Rounded corners */
-    font-size: calc(0.9rem + 1.7vw);
+    font-size: 1em;
 
     /* Increase font size */
     z-index: 1000
@@ -169,12 +155,12 @@ div.numbertext {
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    min-width: 16.666%;
+    min-width: 14%;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
-    font-size: calc(0.9rem + 1.7vw);
+    font-size: 1em;
 }
 
 /* Change the color of links on hover */
@@ -216,7 +202,7 @@ div.numbertext {
     padding: 16px;
     color: white;
     font-weight: bold;
-    font-size: calc(0.9rem + 1.7vw);
+    font-size: 1em;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -237,7 +223,7 @@ div.numbertext {
 /* Caption text */
 .text {
     color: #f2f2f2;
-    font-size: calc(0.9rem + 1.7vw);
+    font-size: 1em;
     padding: 8px 12px;
     position: absolute;
     bottom: 8px;
@@ -248,7 +234,7 @@ div.numbertext {
 /* Number text (1/n etc)  */
 .numbertext {
     color: #f2f2f2;
-    font-size: calc(0.9rem + 1.7vw);
+    font-size: 1em;
     padding: 8px 12px;
     position: absolute;
     top: 0;
@@ -289,7 +275,7 @@ div.numbertext {
 
 #map {
     position: relative;
-    height: 180px;
+    height: 20em;
     z-index: 1,
 
 }
@@ -312,36 +298,4 @@ div.numbertext {
     margin: 5px;
     color: #fff;
     font-weight: bold;
-}
-
-
-/* Add a black background color to the bottom navigation */
-.bottomnav {
-    background-color: #333;
-    overflow: hidden;
-    height: auto;
-}
-
-/* Style the links inside the bottom navigation bar */
-.bottomnav a {
-    float: none;
-    min-width: 16.666%;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: calc(0.9rem + 1.7vw);
-}
-
-/* Change the color of links on hover */
-.bottomnav a:hover {
-    background-color: #ddd;
-
-}
-
-/* Add a color to the active/current link */
-.bottomnav a.active {
-    background-color: #04AA6D;
-    color: white;
-
 }

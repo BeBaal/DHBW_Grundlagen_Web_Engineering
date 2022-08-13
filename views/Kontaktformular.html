@@ -6,6 +6,7 @@
         <title>Mietgaragenverwaltung Baalmann</title>
         <link rel="stylesheet" href="/css/Styles.css">
         <script src="Skripte/GetFormData.js"></script>
+        <script src="/Skripte/TopButton.js"></script>
         <Cache-Control: max-age=0></Cache-Control:>
     </head>
 
@@ -71,9 +72,10 @@
     </fieldset>
 
     <fieldset>
-
-        <label>
+        <p1>
             Ihre Nachricht
+        </p1>
+        <label>
             <textarea rows="15" name="Nachricht" id='message' maxlength="250"
                 required></textarea>
         </label>
@@ -81,12 +83,12 @@
     </fieldset>
 
     <fieldset>
-        <label2>
+        <label>
             <input type="checkbox" name="Datenverarbeitung bestätigt"
                 id='confirmation' value="true" required>
             Ich bestätige, dass ich mit der Verarbeitung meiner Eingaben
             zum Zwecke der Anfragebearbeitung, einverstanden bin.
-        </label2>
+        </label>
 
     </fieldset>
 
@@ -109,15 +111,10 @@
                 class="header">
             <!--             <figcaption></figcaption> -->
         </figure>
-        <footer>
-            <!-- Linkliste unten auf der Seite -->
-            <a class="footer" href="/index">Startseite</a>
-            <a class="footer" href="/FAQ">FAQ</a>
-            <a class="footer" href="/Fotos">Fotos</a>
-            <a class="footer" href="/Kontaktformular">Kontaktformular</a>
-            <a class="footer" href="/Impressum">Impressum</a>
-            <a class="footer" href="/Datenschutz">Datenschutz</a>
-        </footer>
+
     </section>
+
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top &#8593
+    </button>
 
 </html>

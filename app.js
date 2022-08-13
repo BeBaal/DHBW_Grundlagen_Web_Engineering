@@ -2,25 +2,17 @@
 const express = require('express')
 const app = express()
 
-
-
 /* Debugging Deklaration */
-const l_firstname = "Bernd"
+/* const l_firstname = "Bernd"
 const l_lastname = "Baalmann"
 const l_mail = "Bernd.Baalmann@web.de"
 const l_tel = "0594 8749 49499"
 const l_b_date = "01.08.2022"
 const l_message = "Hat seine Freundin ganz doll lieb!"
-const l_confirmation = true
+const l_confirmation = true */
 
 
-/* const browser = await puppeteer.launch({
-    headless: false,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-}) */
-
-
-/* Send Whatsapp Message */
+/* Send Whatsapp Message functionality */
 function SendWaMessage(l_firstname,
     l_lastname,
     l_mail,
@@ -28,6 +20,7 @@ function SendWaMessage(l_firstname,
     l_b_date,
     l_message) {
 
+    // Authorisationparameters and starting whatsapp client
     const qrcode = require('qrcode-terminal');
 
     const { Client, LocalAuth } = require('whatsapp-web.js');
@@ -41,8 +34,7 @@ function SendWaMessage(l_firstname,
     });
 
     client.on('ready', () => {
-        console.log('Client is ready!');
-
+        //console.log('Client is ready!'); // Debugging Client creation
 
         // Number or group where you want to send the message.
         const number = "+4917643517790";
@@ -67,7 +59,6 @@ function SendWaMessage(l_firstname,
         })
     });
 
-
     client.initialize();
 
 }
@@ -80,7 +71,7 @@ function SendWaMessage(l_firstname,
 
 // Webserver Part
 
-// Definition of Port (first argument for port is for heroku and second for local deployment) and hostname
+// Definition of Port (first parameter for port is for heroku and second for local deployment) and hostname
 const hostname = '127.0.0.1';
 const port = process.env.PORT || 5000;
 
@@ -92,12 +83,10 @@ app.use('/img', express.static(__dirname + 'public/img'))
 
 
 // Listen on Port
-app.listen(port, () => console.info(`listening
-
-on port ${port}`))
+app.listen(port, () => console.info(`listening on port ${port}`))
 
 
-// Requests from Client will be solved with these HTML pages
+// Requests from Client will be responded with these HTML pages
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html')
 })
@@ -128,14 +117,12 @@ app.get('/Datenschutz', (req, res) => {
 
 
 // API Middleware
-
 app.use(express.json()); // accepting data in json
 
-/* app.use(express.urlencoded()); // decoding the url */
 
-
-// Listen for form response and use data to send whatsapp message
+// Listen for form PUSH html response and use data to send whatsapp message
 app.post('/KontaktformularDaten', (req, res) => {
+    const { } = req.headers;
     const {
         l_firstname,
         l_lastname,
@@ -143,10 +130,8 @@ app.post('/KontaktformularDaten', (req, res) => {
         l_tel,
         l_b_date,
         l_message } = req.body;
-    const { } = req.headers;
 
-
-    // Debugging Code
+    // Debugging Code for html push
     // console.log('Here is the data in Backend:')
     /*     console.log(
             l_firstname,
@@ -155,7 +140,6 @@ app.post('/KontaktformularDaten', (req, res) => {
             l_tel,
             l_b_date,
             l_message) */
-
 
 
     /* Send Message to a number */
@@ -167,10 +151,6 @@ app.post('/KontaktformularDaten', (req, res) => {
         l_tel,
         l_b_date,
         l_message)
-
-    // Send Message to a group
-
-
 
 })
 
