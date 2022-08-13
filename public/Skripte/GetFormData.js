@@ -4,7 +4,6 @@
     Zusätzlich findet die Übergabe der Daten vom Frontend an das Backend statt.
 */
 
-
 /* Do this when page is loaded */
 window.addEventListener('load', function () {
     /* Do this when Absenden Button is pushed */
@@ -32,7 +31,7 @@ window.addEventListener('load', function () {
             l_message != null &&
             l_confirmation == "true" &&
 
-            /* Using the validation of the html for a proof of the data */
+            /* Using the validation of the html form for a proof of the data */
             document.getElementById("firstname").checkValidity() &&
             document.getElementById("lastname").checkValidity() &&
             document.getElementById("mail").checkValidity() &&
@@ -43,17 +42,36 @@ window.addEventListener('load', function () {
         ) {
             /* Message for successful data entry */
             let notify = document.getElementById("success");
-            notify.innerHTML = "Vielen Dank für die Eingabe Ihrer Kontaktinformationen. Wir schicken Ihnen eine Bestätigungsmail und kontaktieren Sie in Kürze.";
+            notify.innerHTML = "Vielen Dank für die Eingabe Ihrer Kontaktinformationen. Wir kontaktieren Sie in Kürze.";
             notify.style.display = "block";
 
-            /* Debugging Code */
-            console.log(l_firstname)
+            // Debugging Code
+            /* console.log(l_firstname)
             console.log(l_lastname)
             console.log(l_mail)
             console.log(l_tel)
             console.log(l_b_date)
             console.log(l_message)
-            console.log(l_confirmation)
+            console.log(l_confirmation) */
+
+
+            // sending the data to backend
+            fetch('/KontaktformularDaten', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    l_firstname,
+                    l_lastname,
+                    l_mail,
+                    l_tel,
+                    l_b_date,
+                    l_message
+                }),
+            })
+
+
         } else {
             /* message for unsuccessful data entry */
             let notify = document.getElementById("err");

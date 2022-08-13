@@ -44,18 +44,27 @@ function SendWaMessage(l_firstname,
         console.log('Client is ready!');
 
 
-        // Number where you want to send the message.
+        // Number or group where you want to send the message.
         const number = "+4917643517790";
+        const waGroup = "proWIN Familiengruppe"
 
         // Your message.
-        const text = "Es gab am " + l_b_date + " eine neue Anfrage auf der Mietgaragenwebsite von " + l_firstname + " " + l_lastname + " unter der Nummer: " + l_tel + " / Email: " + l_mail + " mit der folgenden Nachricht: " + l_message
+        const text = "Es gab für den " + l_b_date + " eine neue Anfrage auf der Mietgaragenwebsite von " + l_firstname + " " + l_lastname + " unter der Nummer: " + l_tel + " / Email: " + l_mail + " mit der folgenden Nachricht: " + l_message
 
-        // Getting chatId from the number.
-        // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
-        const chatId = number.substring(1) + "@c.us";
-
-        // Sending message.
+        // Getting chatId from the number and sending message.
+        const chatId = number.substring(1) + "@c.us"; // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
         client.sendMessage(chatId, text);
+
+        // Getting chatId from Whatsapp Group and sending message
+        client.getChats().then((chats) => {
+            const myGroup = chats.find(
+                (chat) => chat.name === waGroup
+            );
+            client.sendMessage(
+                myGroup.id._serialized,
+                text
+            );
+        })
     });
 
 
@@ -63,13 +72,7 @@ function SendWaMessage(l_firstname,
 
 }
 
-/* Send Message */
-/* SendWaMessage(l_firstname,
-    l_lastname,
-    l_mail,
-    l_tel,
-    l_b_date,
-    l_message) */
+
 
 
 
@@ -124,9 +127,52 @@ app.get('/Datenschutz', (req, res) => {
 })
 
 
+// API Middleware
+
+app.use(express.json()); // accepting data in json
+
+/* app.use(express.urlencoded()); // decoding the url */
+
+
+// Listen for form response and use data to send whatsapp message
+app.post('/KontaktformularDaten', (req, res) => {
+    const {
+        l_firstname,
+        l_lastname,
+        l_mail,
+        l_tel,
+        l_b_date,
+        l_message } = req.body;
+    const { } = req.headers;
+
+
+    // Debugging Code
+    // console.log('Here is the data in Backend:')
+    /*     console.log(
+            l_firstname,
+            l_lastname,
+            l_mail,
+            l_tel,
+            l_b_date,
+            l_message) */
 
 
 
+    /* Send Message to a number */
+    // console.log('Sending Whatsapp Message') // Debugging Code
+    SendWaMessage(
+        l_firstname,
+        l_lastname,
+        l_mail,
+        l_tel,
+        l_b_date,
+        l_message)
+
+    // Send Message to a group
+
+
+
+})
 
 
 
