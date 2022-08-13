@@ -64,12 +64,12 @@ function SendWaMessage(l_firstname,
 }
 
 /* Send Message */
-SendWaMessage(l_firstname,
+/* SendWaMessage(l_firstname,
     l_lastname,
     l_mail,
     l_tel,
     l_b_date,
-    l_message)
+    l_message) */
 
 
 
