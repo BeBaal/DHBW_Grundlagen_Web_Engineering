@@ -52,8 +52,8 @@ function SendWaMessage(l_firstname,
         const text = "Es gab für den " + l_b_date + " eine neue Anfrage auf der Mietgaragenwebsite von " + l_firstname + " " + l_lastname + " unter der Nummer: " + l_tel + " / Email: " + l_mail + " mit der folgenden Nachricht: " + l_message
 
         // Getting chatId from the number and sending message.
-        const chatId = number.substring(1) + "@c.us"; // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
-        client.sendMessage(chatId, text);
+        /* const chatId = number.substring(1) + "@c.us"; // we have to delete "+" from the beginning and add "@c.us" at the end of the number.
+        client.sendMessage(chatId, text); */
 
         // Getting chatId from Whatsapp Group and sending message
         client.getChats().then((chats) => {
