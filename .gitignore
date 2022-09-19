@@ -1,4 +1,8 @@
 node_modules
 .wwebjs_auth
 SplitTheBill.html
-sendgrid.env 
+sendgrid.env
+settings.json
+Procfile
+contactRequest.json
+.env
