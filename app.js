@@ -11,8 +11,8 @@ const l_lastname = "Mustermann";
 const l_mail = "Max.Mustermann@web.de";
 const l_tel = "0594 8749 49499";
 const l_b_date = "01.08.2022";
-const l_message = "Initialisiert auf Serverseite";
-let exampleArray = [
+const l_message = "Initialisiert beim Start des Servers";
+let contactArray = [
   l_firstname,
   l_lastname,
   l_mail,
@@ -20,7 +20,7 @@ let exampleArray = [
   l_b_date,
   l_message,
 ];
-let exampleTable = [exampleArray];
+let contactTable = [contactArray];
 
 // Execution of main method
 main();
@@ -89,44 +89,56 @@ function SendWaMessage(
 
 /* Send Mail functionality */
 function SendMail(l_firstname, l_lastname, l_mail, l_tel, l_b_date, l_message) {
-  // Twilio SendGrid
-  const sgMail = require("@sendgrid/mail");
+  if (
+    !l_firstname ||
+    !l_lastname ||
+    !l_mail ||
+    !l_tel ||
+    !l_b_date ||
+    !l_message
+  ) {
+    console.log("SendMail invalid parameter");
+    return;
+  } else {
+    // Twilio SendGrid
+    const sgMail = require("@sendgrid/mail");
 
-  // Set API Key in enviromentvariable out of .env file
-  sgMail.setApiKey(process.env.SECRET_KEY);
-  //console.log(process.env.SECRET_KEY); // Debugging Code
+    // Set API Key in enviromentvariable out of .env file
+    sgMail.setApiKey(process.env.SECRET_KEY);
+    //console.log(process.env.SECRET_KEY); // Debugging Code
 
-  // Building your text.
-  const text =
-    "Es gab für den " +
-    l_b_date +
-    "<br> eine neue Anfrage auf der Mietgaragenwebsite von " +
-    l_firstname +
-    "<br>  " +
-    l_lastname +
-    "<br>  unter der Nummer: " +
-    l_tel +
-    "<br> Email: " +
-    l_mail +
-    "<br>  mit der folgenden Nachricht: " +
-    l_message;
+    // Building your text.
+    const text =
+      "Es gab für den " +
+      l_b_date +
+      "<br> eine neue Anfrage auf der Mietgaragenwebsite von " +
+      l_firstname +
+      "<br>  " +
+      l_lastname +
+      "<br>  unter der Nummer: " +
+      l_tel +
+      "<br> Email: " +
+      l_mail +
+      "<br>  mit der folgenden Nachricht: " +
+      l_message;
 
-  // Building your message.
-  const msg = {
-    to: "Baalmann.Bernd@gmail.com", // Change to your recipient
-    from: "Bernd.Baalmann@web.de", // Change to your verified sender
-    subject: "Eine neue Anfrage auf der Mietgaragen Website",
-    text: text,
-    html: text,
-  };
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log("Email sent");
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    // Building your message.
+    const msg = {
+      to: "Baalmann.Bernd@gmail.com", // Change to your recipient
+      from: "Bernd.Baalmann@web.de", // Change to your verified sender
+      subject: "Eine neue Anfrage auf der Mietgaragen Website",
+      text: text,
+      html: text,
+    };
+    sgMail
+      .send(msg)
+      .then(() => {
+        console.log("Email sent");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 }
 
 // Main method of application
@@ -178,10 +190,34 @@ function main() {
     res.sendFile(__dirname + "/views/Kontaktformular.html");
   });
 
-  app.get("/KontaktformularDaten", (req, res) => {
+  app.get("/KontaktformularDaten", async (req, res) => {
+    // console.log(contactTable); // Debugging Code
+
+    // Get Data from database
+    var contactRequest = await db.getContactRequests();
+
+    //console.log(contactRequest[0]); // Debugging Code for Object
+
+    contactRequest.forEach((element) => {
+      // Fill Array with relevant data
+      contactArray = [
+        contactRequest[0].l_firstname,
+        contactRequest[0].l_lastname,
+        contactRequest[0].l_mail,
+        contactRequest[0].l_tel,
+        contactRequest[0].l_b_date,
+        contactRequest[0].l_message,
+      ];
+      contactTable.unshift(contactArray);
+      //console.log(contactTable); // Debugging Code for Array
+    });
+
     res.statusCode = 200;
-    // sending the data to frontend as an array
-    res.send(exampleTable);
+    // sending the data to frontend as an array of array
+    res.send(contactTable);
+
+    // oder das hier ist viel schicker....
+    // res.send(await db.getContactRequests());
   });
 
   app.get("/Anfragen", auth, (req, res) => {
@@ -205,18 +241,27 @@ function main() {
     const { l_firstname, l_lastname, l_mail, l_tel, l_b_date, l_message } =
       req.body;
 
-    exampleArray = [
+    console.log(req.body);
+    console.log(req.body.l_firstname);
+    console.log(req.body[0]);
+
+    contactTable.unshift([
       l_firstname,
       l_lastname,
       l_mail,
       l_tel,
       l_b_date,
       l_message,
-    ];
+    ]);
 
-    exampleTable.unshift(exampleArray);
-
-    await db.createContactRequest(req.body);
+    await db.createContactRequest(
+      l_firstname,
+      l_lastname,
+      l_mail,
+      l_tel,
+      l_b_date,
+      l_message
+    );
 
     // Debugging Code for html push
     // console.log('Here is the data in Backend:')
@@ -228,7 +273,7 @@ function main() {
 
     /* Send Mail to a number */
     //console.log("Sending Whatsapp Message"); // Debugging Code
-    SendMail(req.body);
+    //SendMail(l_firstname, l_lastname, l_mail, l_tel, l_b_date, l_message);
   });
 }
 

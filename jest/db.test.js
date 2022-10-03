@@ -11,7 +11,9 @@ const l_message = "Jest Test";
 
 // First Test
 test("Database was initialized successfully with two test entries", async () => {
+  // Resetting before Test
   await db.initialize();
+
   // await console.log(db.getContactRequests()); // Debugging Code
   var contactRequests = await db.getContactRequests();
 
@@ -25,6 +27,9 @@ test("Database was initialized successfully with two test entries", async () => 
 
 // Second Test
 test("Database operations: Contact insertion and retrieval of last entry", async () => {
+  // Resetting before Test
+  await db.initialize();
+
   // Getting the return object of the cuntion
   var contactRequest = await db.createContactRequest(
     l_firstname,
@@ -60,6 +65,10 @@ test("Database operations: Contact insertion and retrieval of last entry", async
 
 // Third test
 test("Database operations: Contact deletion", async () => {
+  // Resetting before Test
+  await db.initialize();
+
+  // Deletion
   await db.deleteContactRequests();
   var contactRequest = await db.getContactRequests();
 
