@@ -19,7 +19,7 @@ window.addEventListener('load', function() {
   });
 
   /**
-   * This function does check the validation of the input variables
+   * This function validates the input variables
    * @param {string} firstname
    * @param {string} lastname
    * @param {string} mail
