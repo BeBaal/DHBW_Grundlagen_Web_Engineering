@@ -1,23 +1,20 @@
-/* 
+/*
     Dieses Skript weist die aktuellen Kontaktanfragen in einer Tabelle aus.
 */
 
-window.addEventListener("load", function () {
-  // Get a reference to the table
-  let tableRef = document.getElementById("myTable");
-
+window.addEventListener('load', function() {
   // getting the data from backend
-  fetch("/KontaktformularDaten")
-    .then((response) => response.json())
-    .then((data) => {
-      //console.log(data); // Debugging Code
+  fetch('/KontaktformularDaten')
+      .then((response) => response.json())
+      .then((data) => {
+      // console.log(data); // Debugging Code
 
-      for (const element of data) {
-        contactArray = element;
-        // Call addRow() with the table's ID
-        addRow("myTable");
-      }
-    });
+        for (const element of data) {
+          contactArray = element;
+          // Call addRow() with the table's ID
+          addRow('myTable');
+        }
+      });
 });
 
 /**
@@ -26,17 +23,17 @@ window.addEventListener("load", function () {
  */
 function addRow(tableID) {
   // Get a reference to the table
-  let tableRef = document.getElementById(tableID);
+  const tableRef = document.getElementById(tableID);
 
   // Insert a row at the end of the table
-  let newRow = tableRef.insertRow(-1);
+  const newRow = tableRef.insertRow(-1);
 
   for (const element of contactArray) {
     // Insert a cell in the row
-    let newCell = newRow.insertCell();
+    const newCell = newRow.insertCell();
 
     // Append a text node to the cell
-    let newText = document.createTextNode(element);
+    const newText = document.createTextNode(element);
     newCell.appendChild(newText);
   }
 }
