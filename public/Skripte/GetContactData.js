@@ -20,6 +20,10 @@ window.addEventListener("load", function () {
     });
 });
 
+/**
+ * Adds a row to the html page.
+ * @param {string} tableID ID of the table where the row should be added.
+ */
 function addRow(tableID) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);

@@ -17,7 +17,15 @@ window.addEventListener("load", function () {
     validateData(l_firstname, l_lastname, l_mail, l_tel, l_b_date, l_message);
   });
 
-  /*  */
+  /**
+   * This function does check the validation of the input variables
+   * @param {string} l_firstname
+   * @param {string} l_lastname
+   * @param {string} l_mail
+   * @param {string} l_tel
+   * @param {string} l_b_date
+   * @param {string} l_message
+   */
   function validateData(
     l_firstname,
     l_lastname,

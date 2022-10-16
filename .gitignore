@@ -6,3 +6,4 @@ settings.json
 Procfile
 contactRequest.json
 .env
+.vscode
