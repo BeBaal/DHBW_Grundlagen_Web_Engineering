@@ -6,13 +6,11 @@ html {
     font-size: 100%;
 }
 
-
 body {
     position: relative;
     top: fixed;
     background-color: rgba(10, 10, 10, 0, 5);
 }
-
 
 
 section.body {
@@ -42,23 +40,10 @@ figcaption {
 }
 
 
-p.Antwort {
-    text-indent: 10px;
-    margin-top: 0;
-    margin-bottom: 2em;
-}
 
-p.Frage {
-    margin: 0;
-}
-
-p.Kontaktdaten {
-    white-space: pre-line;
-}
-
-
-
-
+/* 
+    Formatierung des Kontaktformulars
+*/
 
 input {
     background-color: ivory;
@@ -79,6 +64,10 @@ input:invalid {
     border: none;
     outline: 2px solid red;
     border-radius: 5px;
+}
+
+address {
+    line-break: break-all;
 }
 
 
@@ -298,6 +287,7 @@ div.numbertext {
 }
 
 
+
 table,
 td {
     border: 1px solid #333;
@@ -368,7 +358,7 @@ summary:focus::after {
     position: absolute;
     top: 0;
     left: 0;
-    box-shadow: 0 0 0 5px rebeccapurple;
+    box-shadow: 0 0 0 5px rgb(125, 125, 125);
 }
 
 summary::-webkit-details-marker {
@@ -376,7 +366,7 @@ summary::-webkit-details-marker {
 }
 
 .control-icon {
-    fill: rebeccapurple;
+    fill: rgb(125, 125, 125);
     transition: .3s ease;
     pointer-events: none;
 }

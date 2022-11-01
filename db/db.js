@@ -1,62 +1,78 @@
-const { JsonDB } = require("node-json-db");
-const { Config } = require("node-json-db/dist/lib/JsonDBConfig");
+const {JsonDB} = require('node-json-db');
+const {Config} = require('node-json-db/dist/lib/JsonDBConfig');
 
-const { v4: uuidv4 } = require("uuid");
+const {v4: uuidv4} = require('uuid');
 
-const db = new JsonDB(new Config("contactRequest", true, false, "/"));
+const db = new JsonDB(new Config('contactRequest', true, false, '/'));
 
+
+/**
+    * This method initalizes the database
+    * @returns
+*/
 exports.initialize = async () => {
   try {
-    this.deleteContactRequests(); //Resetting Database if resetted create an example entry
+    this.deleteContactRequests(); // Resetting Database if empty create example
     this.createContactRequest(
-      "Erster",
-      "Satz",
-      "Blablabla@web.de",
-      "012370123",
-      "01.01.1000",
-      "Dieser Satz wurde beim Initialen Aufruf der Datenbank erzeugt."
+        'Erster',
+        'Satz',
+        'Blablabla@web.de',
+        '012370123',
+        '01.01.1000',
+        'Dieser Satz wurde beim Initialen Aufruf der Datenbank erzeugt.',
     );
     this.createContactRequest(
-      "Zweiter",
-      "Satz",
-      "Blablabla@web.de",
-      "012370123",
-      "01.01.1000",
-      "Dieser Satz wurde auch beim Initialen Aufruf der Datenbank erzeugt."
+        'Zweiter',
+        'Satz',
+        'Blablabla@web.de',
+        '012370123',
+        '01.01.1000',
+        'Dieser Satz wurde auch beim Initialen Aufruf der Datenbank erzeugt.',
     );
-    return "deletion was successful";
+    return 'deletion was successful';
   } catch (error) {
-    console.error("Fehler beim Aufruf von db.initialize", error);
+    console.error('Fehler beim Aufruf von db.initialize', error);
     return;
   }
 };
 
+/**
+ *
+ * @param {string} firstname
+ * @param {string} lastname
+ * @param {string} mail
+ * @param {string} tel
+ * @param {string} beginnDate
+ * @param {string} message
+ * @returns
+ */
 exports.createContactRequest = async (
-  l_firstname,
-  l_lastname,
-  l_mail,
-  l_tel,
-  l_b_date,
-  l_message
+    firstname,
+    lastname,
+    mail,
+    tel,
+    beginnDate,
+    message,
 ) => {
   // Checks the input paramters again in backend for beeing not empty
   if (
-    l_firstname == null &&
-    l_lastname == null &&
-    l_mail == null &&
-    l_tel == null &&
-    l_b_date == null &&
-    l_message == null
+    firstname == null &&
+    lastname == null &&
+    mail == null &&
+    tel == null &&
+    beginnDate == null &&
+    message == null
   ) {
     // ToDo check more than not beeing empty
     console.log(
-      "Bitte die Inputparameter beim Aufruf der Funktion db.createContactRequest kontrollieren. Validation was not successfull.",
-      l_firstname,
-      l_lastname,
-      l_mail,
-      l_tel,
-      l_b_date,
-      l_message
+        'Bitte Inputparameter beim Aufruf der Funktion db.createContactRequest'+
+        'kontrollieren. Validation was not successfull.',
+        firstname,
+        lastname,
+        mail,
+        tel,
+        beginnDate,
+        message,
     );
     return;
   }
@@ -65,49 +81,64 @@ exports.createContactRequest = async (
 
   const contactRequest = {
     id: uuidv4(),
-    l_firstname: l_firstname,
-    l_lastname: l_lastname,
-    l_mail: l_mail,
-    l_tel: l_tel,
-    l_b_date: l_b_date,
-    l_message: l_message,
+    firstname: firstname,
+    lastname: lastname,
+    mail: mail,
+    tel: tel,
+    beginnDate: beginnDate,
+    message: message,
     created: date,
     updated: date,
   };
 
-  await db.push("/contactRequests[]", contactRequest);
+  await db.push('/contactRequests[]', contactRequest);
 
   return contactRequest;
 };
 
+
+/**
+ *
+ * @returns
+ */
 exports.deleteContactRequests = async () => {
   try {
-    await db.delete("/contactRequests");
-    return "successfull deletion";
+    await db.delete('/contactRequests');
+    return 'successfull deletion';
   } catch (error) {
-    console.error("Fehler beim Aufruf von db.deleteContactRequests", error);
+    console.error('Fehler beim Aufruf von db.deleteContactRequests', error);
     return;
   }
 };
 
+
+/**
+ *
+ * @returns
+ */
 exports.getContactRequests = async () => {
   try {
-    var ContactRequests = await db.getData("/contactRequests");
-    //console.log(ContactRequests); // Keep for Debugging
+    const ContactRequests = await db.getData('/contactRequests');
+    // console.log(ContactRequests); // Keep for Debugging
     return ContactRequests;
   } catch (error) {
     // Negativ Test in Jest included
-    //console.log("Fehler beim Aufruf von db.getContactRequest", error);
+    // console.log("Fehler beim Aufruf von db.getContactRequest", error);
     return;
   }
 };
 
+
+/**
+ *
+ * @returns
+ */
 exports.getLastContactRequest = async () => {
   try {
-    var contactRequest = await db.getData("/contactRequests[-1]");
+    const contactRequest = await db.getData('/contactRequests[-1]');
     return contactRequest;
   } catch (error) {
-    console.log("Fehler beim Aufruf von db.getLastContactRequest", error);
+    console.log('Fehler beim Aufruf von db.getLastContactRequest', error);
     return;
   }
 };

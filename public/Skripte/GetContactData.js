@@ -1,5 +1,7 @@
 /*
-    Dieses Skript weist die aktuellen Kontaktanfragen in einer Tabelle aus.
+    Dieses Skript ist auf der Anfragen.html Seite verbaut und fragt vom Server
+    die bisher eingegangenen Kontaktanfragen ab. Die Response wird auf der HMTL
+    Page als weitere Zeilen in der Tabelle ausgegeben.
 */
 
 window.addEventListener('load', function() {

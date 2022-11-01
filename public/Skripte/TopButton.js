@@ -1,9 +1,15 @@
-window.addEventListener("load", function () {
-  //Get reference to the button
-  var mybutton = document.getElementById("myBtn");
+/*
+    Dieses Java Skript ist eingebaut auf allen HTHML Seiten und
+    kontrolliert den Top Button. Nachdem im Dokument heruntergescrollt wird
+    erscheint ein Button, der einen wieder zum Beginn des Dokuments bringt.
+*/
 
-  // On scroll call the below function
-  window.onscroll = function () {
+window.addEventListener('load', function() {
+  // Get reference to the button
+  const mybutton = document.getElementById('myBtn');
+
+  // On scroll call the below function which checks how much was scrolled
+  window.onscroll = function() {
     scrollFunction();
   };
 
@@ -16,14 +22,14 @@ window.addEventListener("load", function () {
       document.body.scrollTop > 20 ||
       document.documentElement.scrollTop > 20
     ) {
-      mybutton.style.display = "block";
+      mybutton.style.display = 'block';
     } else {
-      mybutton.style.display = "none";
+      mybutton.style.display = 'none';
     }
   }
 
   // When the user clicks on the button call topFunction
-  document.getElementById("myBtn").addEventListener("click", topFunction);
+  document.getElementById('myBtn').addEventListener('click', topFunction);
 
   /**
    * Jump to the top of the document

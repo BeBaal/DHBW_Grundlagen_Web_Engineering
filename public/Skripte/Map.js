@@ -1,5 +1,7 @@
 /*
-    Diese Java Skript stellt die Map auf die Koordinaten der Mietgaragen ein.
+    Diese Java Skript ist auf der index.html Seite verbaut und stellt die
+    Landkarte auf die Koordinaten der Mietgaragen ein sowie andere benötigte
+    Parameter.
 */
 
 window.addEventListener('load', function() {

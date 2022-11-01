@@ -1,8 +1,9 @@
 /*
-    Diese Java Skript ließt die Daten aus dem HTML Form aus und überträgt die
-    Daten zur Datenbank. Falls die Eingabe korrekt oder falsch war, wird dem
-    Anwender eine entsprechende Meldung als HMTL Objekt angezeigt. Zusätzlich
-    findet die Übergabe der Daten vom Frontend an das Backend statt.
+    Dieses Skript ist auf der Seite Kontaktformular.html verbaut. Es werden die
+    Daten aus dem HTML-Form ausgelesen. Falls die Eingabe korrekt oder falsch
+    war, wird dem Anwender eine entsprechende Meldung als HMTL-Objekt
+    angezeigt. Zusätzlich findet die Übergabe der Daten vom Frontend an das
+    Backend statt.
 */
 
 /* Do this when page is loaded */
