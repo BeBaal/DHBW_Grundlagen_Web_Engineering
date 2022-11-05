@@ -7,9 +7,10 @@
 */
 
 /* Do this when page is loaded */
-window.addEventListener('load', function() {
+window.addEventListener('hashchange', function() {
   /* Do this when Absenden Button is pushed */
   document.getElementById('myBtn2').addEventListener('click', function() {
+    // Get values from innerHTML
     const firstname = document.getElementById('firstname').value;
     const lastname = document.getElementById('lastname').value;
     const mail = document.getElementById('mail').value;
@@ -38,8 +39,8 @@ window.addEventListener('load', function() {
   ) {
     const confirmation = document.getElementById('confirmation').value;
 
-    if (
-      // Check if empty and valid
+    // Check if empty and valid
+    isInputValid =
       firstname != null &&
       lastname != null &&
       mail != null &&
@@ -47,29 +48,22 @@ window.addEventListener('load', function() {
       beginDate != null &&
       message != null &&
       confirmation == 'true' &&
-      /* Using the validation of the html form for a proof of the data */
+      /* Using the validation of the html form for checking the data.
+         This code probably double checks emptiness */
       document.getElementById('firstname').checkValidity() &&
       document.getElementById('lastname').checkValidity() &&
       document.getElementById('mail').checkValidity() &&
       document.getElementById('tel').checkValidity() &&
       document.getElementById('b_date').checkValidity() &&
       document.getElementById('message').checkValidity() &&
-      document.getElementById('confirmation').checkValidity()
-    ) {
+      document.getElementById('confirmation').checkValidity();
+
+    if (isInputValid) {
       /* Message for successful data entry */
       const notify = document.getElementById('success');
       notify.innerHTML =
       'Vielen Dank für Ihre Anfrage. Wir kontaktieren Sie in Kürze.';
       notify.style.display = 'block';
-
-      // Debugging Code
-      /* console.log(firstname)
-            console.log(lastname)
-            console.log(mail)
-            console.log(tel)
-            console.log(b_date)
-            console.log(message)
-            console.log(confirmation) */
 
       // sending the data to backend
       fetch('/KontaktformularDaten', {

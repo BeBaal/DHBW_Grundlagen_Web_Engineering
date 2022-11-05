@@ -20,7 +20,7 @@ let contactArray = [
   beginnDate,
   message,
 ];
-const contactTable = [contactArray];
+let contactTable = [contactArray];
 
 // Execution of main method
 main();
@@ -40,15 +40,13 @@ main();
  */
 function sendMail(firstname, lastname, mail, tel, beginnDate, message) {
   if (
-    !firstname ||
-    !lastname ||
-    !mail ||
-    !tel ||
-    !beginnDate ||
-    !message
+    firstname != null &&
+    lastname != null &&
+    mail != null &&
+    tel != null &&
+    beginnDate != null &&
+    message != null
   ) {
-    console.info('sendMail function application invalid parameter');
-  } else {
     // Twilio SendGrid
     const sgMail = require('@sendgrid/mail');
 
@@ -88,6 +86,8 @@ function sendMail(firstname, lastname, mail, tel, beginnDate, message) {
         .catch((error) => {
           console.error(error);
         });
+  } else {
+    console.info('sendMail function application invalid parameter');
   }
 }
 
@@ -122,13 +122,15 @@ function main() {
     }
   };
 
-  // Requests from Client will be responded with these HTML pages
+  // Generell Path for the single page application
   app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
   });
 
-  app.get('/index', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
+
+  // Load HTML content for the single page application
+  app.get('/Startseite', (req, res) => {
+    res.sendFile(__dirname + '/views/Startseite.html');
   });
 
   app.get('/FAQ', (req, res) => {
@@ -143,39 +145,6 @@ function main() {
     res.sendFile(__dirname + '/views/Kontaktformular.html');
   });
 
-  app.get('/KontaktformularDaten', async (req, res) => {
-    // console.log(contactTable); // Debugging Code
-
-    // Get Data from database
-    const contactRequest = await db.getContactRequests();
-
-    // console.log(contactRequest[0]); // Debugging Code for Object
-
-    contactRequest.forEach((element) => {
-      // Fill Array with relevant data
-      contactArray = [
-        contactRequest[0].firstname,
-        contactRequest[0].lastname,
-        contactRequest[0].mail,
-        contactRequest[0].tel,
-        contactRequest[0].beginnDate,
-        contactRequest[0].message,
-      ];
-      contactTable.unshift(contactArray);
-      // console.log(contactTable); // Debugging Code for Array
-    });
-
-    res.statusCode = 200;
-    // sending the data to frontend as an array of array
-    res.send(contactTable);
-
-    // oder das hier ist viel schicker....
-    // res.send(await db.getContactRequests());
-  });
-
-  app.get('/Anfragen', auth, (req, res) => {
-    res.sendFile(__dirname + '/views/Anfragen.html');
-  });
 
   app.get('/Impressum', (req, res) => {
     res.sendFile(__dirname + '/views/Impressum.html');
@@ -185,25 +154,57 @@ function main() {
     res.sendFile(__dirname + '/views/Datenschutzerklärung.html');
   });
 
-  // API Middleware
+  // Both following statements not used by single page application
+  // and access restricted
+  app.get('/Anfragen', auth, (req, res) => {
+    res.sendFile(__dirname + '/views/Anfragen.html');
+  });
+
+
+  // Send back Contactrequests for html table when authorization is correct
+  app.get('/KontaktformularDaten', auth, async (req, res) => {
+    // Get Data from database
+    const contactRequest = await db.getContactRequests();
+
+    // Reset Table
+    contactTable = [];
+
+    // fill Table with Arrays
+    contactRequest.forEach((element) => {
+      // Fill Array with relevant data
+      contactArray = [
+        element.firstname,
+        element.lastname,
+        element.mail,
+        element.tel,
+        element.beginnDate,
+        element.message,
+      ];
+      contactTable.unshift(contactArray);
+    });
+
+    res.statusCode = 200;
+    // sending the data to frontend as an array of arrays
+    res.send(contactTable);
+  });
+
+
+  // API Middleware wird gebraucht für Annahme der Daten aus dem Frontend
   app.use(express.json()); // accepting data in json
 
-  // Listen for form PUSH html response and use data to send whatsapp message
+  // Listen for form PUSH html response and use data to send notification
   app.post('/KontaktformularDaten', async (req, res) => {
     const {} = req.headers;
-    const {firstname, lastname, mail, tel, beginnDate, message} =
+    const {firstname, lastname, mail, tel, beginDate, message} =
       req.body;
 
-    console.log(req.body);
-    console.log(req.body.firstname);
-    console.log(req.body[0]);
 
     contactTable.unshift([
       firstname,
       lastname,
       mail,
       tel,
-      beginnDate,
+      beginDate,
       message,
     ]);
 
@@ -212,14 +213,15 @@ function main() {
         lastname,
         mail,
         tel,
-        beginnDate,
+        beginDate,
         message,
     );
 
     /* Send Mail to a number */
-    // console.log("Sending Whatsapp Message"); // Debugging Code
-    sendMail(firstname, lastname, mail, tel, beginnDate, message);
+    console.log('Sending Message'); // Debugging Code
+    sendMail(firstname, lastname, mail, tel, beginDate, message);
   });
 }
 
+// Gets called in the server.js file
 module.exports = app;

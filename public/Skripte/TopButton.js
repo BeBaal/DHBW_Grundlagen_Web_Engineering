@@ -1,5 +1,5 @@
 /*
-    Dieses Java Skript ist eingebaut auf allen HTHML Seiten und
+    Dieses Java Skript ist eingebaut auf der index HTHML Seite und
     kontrolliert den Top Button. Nachdem im Dokument heruntergescrollt wird
     erscheint ein Button, der einen wieder zum Beginn des Dokuments bringt.
 */

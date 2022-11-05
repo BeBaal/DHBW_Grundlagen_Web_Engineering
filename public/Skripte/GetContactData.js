@@ -9,28 +9,30 @@ window.addEventListener('load', function() {
   fetch('/KontaktformularDaten')
       .then((response) => response.json())
       .then((data) => {
-      // console.log(data); // Debugging Code
+        let lineNumber = 1;
 
-        for (const element of data) {
-          contactArray = element;
-          // Call addRow() with the table's ID
-          addRow('myTable');
+        for (const row of data) {
+          addRow('myTable', row, lineNumber);
+          lineNumber++;
         }
       });
 });
 
 /**
- * Adds a row to the html page.
+ * Adds a row to the html table element.
  * @param {string} tableID ID of the table where the row should be added.
+ * @param {array} array row that will be added to the table
+ * @param {int} lineNumber which line should the row be added
+ *
  */
-function addRow(tableID) {
+function addRow(tableID, array, lineNumber) {
   // Get a reference to the table
   const tableRef = document.getElementById(tableID);
 
   // Insert a row at the end of the table
-  const newRow = tableRef.insertRow(-1);
+  const newRow = tableRef.insertRow(lineNumber);
 
-  for (const element of contactArray) {
+  for (const element of array) {
     // Insert a cell in the row
     const newCell = newRow.insertCell();
 
@@ -39,5 +41,3 @@ function addRow(tableID) {
     newCell.appendChild(newText);
   }
 }
-
-preventDefault();

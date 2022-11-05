@@ -1,32 +1,28 @@
 /*
 Hier werden diverse Einstellungen zu Basiselementen vorgenommen.
 */
-
+* {
+    font-family: Arial, sans-serif;
+}
 html {
     font-size: 100%;
 }
-
 body {
     position: relative;
     top: fixed;
     background-color: rgba(10, 10, 10, 0, 5);
 }
-
-
-section.body {
-    margin-inline: auto;
+.hidden {
+    display: none;
 }
-
 .footer {
-    margin-top: 1em;
+    margin-top: 2em;
 }
-
 h1 {
     background-color: rgb(106, 145, 112);
     text-align: center;
     padding: 8px 16px;
 }
-
 figure {
     margin-block-start: 0;
     margin-block-end: 0;
@@ -34,67 +30,46 @@ figure {
     margin-inline-end: 0;
     margin-bottom: 1em;
 }
-
 figcaption {
     text-align: center;
 }
-
-
-
-/* 
-    Formatierung des Kontaktformulars
-*/
-
-input {
-    background-color: ivory;
-    border: none;
-    /*outline: 2px solid red;
-    border-radius: 5px;*/
-}
-
-input:valid {
-    background-color: ivory;
-    border: none;
-    outline: 2px solid green;
-    border-radius: 5px;
-}
-
-input:invalid {
-    background-color: ivory;
-    border: none;
-    outline: 2px solid red;
-    border-radius: 5px;
-}
-
-address {
-    line-break: break-all;
-}
-
-
 img {
     width: 100%;
     height: auto;
 }
 
-img.header {
-    width: 100%;
-    height: auto;
+
+/* 
+    Formatierung des Kontaktformulars
+*/
+input {
+    background-color: ivory;
+    border: none;
 }
+input:valid {
+    outline: 2px solid green;
+    border-radius: 5px;
+}
+input:invalid {
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+
+address {
+    line-break: strict;
+}
+
+
 
 
 div.numbertext {
-
     text-align: center;
 }
 
-* {
-    font-family: Arial, sans-serif;
-
-}
 
 
-/* Hier wird das Format des Buttons bestimmt, der beim Scrollen zurück nach oben springt lässt*/
-
+/* Hier wird das Format des Buttons bestimmt, der beim Scrollen zurück nach
+   oben springt lässt*/
 #myBtn {
     display: none;
     /* Hidden by default */
@@ -110,8 +85,6 @@ div.numbertext {
     /* Remove outline */
     background-color: grey;
     /* Set a background color */
-
-    /* Text color */
     cursor: pointer;
     /* Add a mouse pointer on hover */
     padding: 15px;
@@ -119,25 +92,23 @@ div.numbertext {
     border-radius: 10px;
     /* Rounded corners */
     font-size: 1em;
-
     /* Increase font size */
     z-index: 1000
 }
-
 #myBtn:hover {
     background-color: #555;
     /* Add a dark-grey background on hover */
 }
 
 
-/* Add a black background color to the top navigation */
+
+/* Navigationsleiste oben auf der index Seite */
 .topnav {
     background-color: #333;
     overflow: hidden;
     height: auto;
 }
-
-/* Style the links inside the navigation bar */
+/* Elemente in der Navigationsleiste */
 .topnav a {
     float: left;
     min-width: 14%;
@@ -147,19 +118,22 @@ div.numbertext {
     text-decoration: none;
     font-size: 1em;
 }
-
-/* Change the color of links on hover */
+/* Ändert die Farbe der Elemente on hover */
 .topnav a:hover {
     background-color: #ddd;
 
 }
-
-/* Add a color to the active/current link */
+/* Markiert die aktuell gewählte Seite */
 .topnav a.active {
     background-color: #04AA6D;
     color: white;
 }
-
+/* Überschreibe User Style Sheet */
+ul{
+    padding-inline-start: 0em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
 
 
 
@@ -170,13 +144,11 @@ div.numbertext {
     position: relative;
     margin: auto;
 }
-
-/* Hide the images by default */
+/* Stellt die Slides im default alle auf hidden */
 .mySlides {
     display: none;
 }
-
-/* Next & previous buttons */
+/* Next & previous buttons an den Seiten der Slideshow*/
 .prev,
 .next {
     cursor: pointer;
@@ -193,30 +165,16 @@ div.numbertext {
     user-select: none;
     border: 1px solid black;
 }
-
-/* Position the "next button" to the right */
+/* Fixiert den rechten Weiter Knopf auf der rechten Seite */
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
-
-/* On hover, add a black background color with a little bit see-through */
+/* On hover, add a grey background color */
 .prev:hover,
 .next:hover {
     background-color: gray;
 }
-
-/* Caption text */
-.text {
-    color: #f2f2f2;
-    font-size: 1em;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
-
 /* Number text (1/n etc)  */
 .numbertext {
     color: #333;
@@ -225,7 +183,6 @@ div.numbertext {
     position: absolute;
     top: 0;
 }
-
 /* The dots/bullets/indicators */
 .dot {
     cursor: pointer;
@@ -237,18 +194,15 @@ div.numbertext {
     display: inline-block;
     transition: background-color 0.6s ease;
 }
-
 .active,
 .dot:hover {
     background-color: #717171;
 }
-
 /* Fading animation */
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
 }
-
 @keyframes fade {
     from {
         opacity: .4
@@ -259,6 +213,11 @@ div.numbertext {
     }
 }
 
+
+
+
+/* Hier wird die Map auf der Startseite gestylt. Der z-Index stellt die Map
+   in den Vordergrung */
 #map {
     position: relative;
     height: 20em;
@@ -266,6 +225,10 @@ div.numbertext {
 
 }
 
+
+/* Auf der Kontaktformularseite hat der User die Möglichkeit richtige und
+   falsche Angaben zu tätigen aus diesem Grund findet sich hier das Styling der
+   Success beziehungsweise Fehlermeldung */
 #err {
     display: none;
     background: #f54242;
@@ -275,7 +238,6 @@ div.numbertext {
     color: #fff;
     font-weight: bold;
 }
-
 #success {
     display: none;
     background: #42f563;
@@ -287,12 +249,11 @@ div.numbertext {
 }
 
 
-
+/* Auf der Anfragen Seite befindet sich eine Tabelle, die hier gestylt wird. */
 table,
 td {
     border: 1px solid #333;
 }
-
 thead,
 tfoot {
     background-color: #333;
@@ -301,14 +262,8 @@ tfoot {
 
 
 
-
-
-
-
-
-
-
-
+/* Auf der Seite FAQs gibt es Fragen. Wenn man auf die Fragen klickt öffnet
+   sich die zugehörige Antwort */
 details {
     width: 75%;
     min-height: 5px;
@@ -321,65 +276,24 @@ details {
     box-sizing: border-box;
     transition: all .3s;
 }
-
+/* Abstand zwischen zwei Details Kästen */
 details+details {
     margin-top: 20px;
 }
-
 details[open] {
     min-height: 50px;
     background-color: #f6f7f8;
     box-shadow: 2px 2px 20px rgba(0, 0, 0, .2);
 }
-
 details p {
     color: #96999d;
     font-weight: 300;
 }
-
+/* Das ist das Styling der Fragen */
 summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: 500;
     cursor: pointer;
-}
-
-summary:focus {
-    outline: none;
-
-}
-
-summary:focus::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    box-shadow: 0 0 0 5px rgb(125, 125, 125);
-}
-
-summary::-webkit-details-marker {
-    display: none
-}
-
-.control-icon {
-    fill: rgb(125, 125, 125);
-    transition: .3s ease;
-    pointer-events: none;
-}
-
-.control-icon-close {
-    display: none;
-}
-
-details[open] .control-icon-close {
-    display: initial;
-    transition: .3s ease;
-}
-
-details[open] .control-icon-expand {
-    display: none;
 }

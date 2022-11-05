@@ -1,120 +1,71 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mietgaragenverwaltung Baalmann</title>
-        <link rel="stylesheet" href="/css/Styles.css">
-        <script src="Skripte/GetFormData.js"></script>
-        <script src="/Skripte/TopButton.js"></script>
-        <Cache-Control: max-age=0></Cache-Control:>
-    </head>
+<h1>Kontaktformular</h1>
 
-    <body>
-        <header>
-            <figure>
-                <img src="/img/Bild_7.jpg"
-                    alt="Pictures of Mietgaragen">
-                <figcaption>100€ Netto im Monat pro Einheit inkl. XX KW Strom
-                    &diams; ca 15qm pro Garage &diams; 24 Stunden zugänglich und
-                    viedeoüberwacht &diams; Lagerflächen flexibel nach Bedarf
-                    erweiterbar </figcaption>
-            </figure>
-            <nav class="topnav">
-                <a href="/index">Startseite</a>
-                <a href="/FAQ">FAQ</a>
-                <a href="/Fotos">Fotos</a>
-                <a href="/Kontaktformular">Kontaktformular</a>
-                <a href="/Impressum">Impressum</a>
-                <a href="/Datenschutz">Datenschutz</a>
-            </nav>
-        </header>
-        <h1>Kontaktformular</h1>
-    </body>
+<fieldset>
+    <label>
+        Vorname
+        <input type="text" name="Vorname" id='firstname' maxlength="15"
+            required>
+    </label>
 
 
-    <fieldset>
-        <label>
-            Vorname
-            <input type="text" name="Vorname" id='firstname' maxlength="15"
-                required>
-        </label>
+    <label>
+        Nachname
+        <input type="text" name="Nachname" id='lastname' maxlength="20"
+            required>
+    </label>
+</fieldset>
+
+<fieldset>
+    <label>
+        E-Mail-Adresse
+        <input type="email" name="E-Mail" id='mail' maxlength="40"
+            required>
+    </label>
 
 
-        <label>
-            Nachname
-            <input type="text" name="Nachname" id='lastname' maxlength="20"
-                required>
-        </label>
-    </fieldset>
+    <label>
+        Telefonnummer
+        <input type="tel" name="Telefonnummer" maxlength="25" id='tel'
+            required>
+    </label>
+</fieldset>
 
-    <fieldset>
-        <label>
-            E-Mail-Adresse
-            <input type="email" name="E-Mail" id='mail' maxlength="40"
-                required>
-        </label>
+<fieldset>
+    <label>
+        Starttermin für Miete
+        <input type="date" name="Datum" id='b_date' required>
+    </label>
 
+</fieldset>
 
-        <label>
-            Telefonnummer
-            <input type="tel" name="Telefonnummer" maxlength="25" id='tel'
-                required>
-        </label>
-    </fieldset>
+<fieldset>
+    <p1>
+        Ihre Nachricht
+    </p1>
+    <label>
+        <textarea rows="15" name="Nachricht" id='message' maxlength="250"
+            required></textarea>
+    </label>
 
-    <fieldset>
-        <label>
-            Starttermin für Miete
-            <input type="date" name="Datum" id='b_date' required>
-        </label>
+</fieldset>
 
-    </fieldset>
+<fieldset>
+    <label>
+        <input type="checkbox" name="Datenverarbeitung bestätigt"
+            id='confirmation' value="true" required>
+        Ich bestätige, dass ich mit der Verarbeitung meiner Eingaben
+        zum Zwecke der Anfragebearbeitung, einverstanden bin.
+    </label>
 
-    <fieldset>
-        <p1>
-            Ihre Nachricht
-        </p1>
-        <label>
-            <textarea rows="15" name="Nachricht" id='message' maxlength="250"
-                required></textarea>
-        </label>
-
-    </fieldset>
-
-    <fieldset>
-        <label>
-            <input type="checkbox" name="Datenverarbeitung bestätigt"
-                id='confirmation' value="true" required>
-            Ich bestätige, dass ich mit der Verarbeitung meiner Eingaben
-            zum Zwecke der Anfragebearbeitung, einverstanden bin.
-        </label>
-
-    </fieldset>
+</fieldset>
 
 
-    <div class="btns">
-        <!-- <input type="submit" id="myBtn2" value="Absenden" /> -->
-        <button id="myBtn2" title="Absenden">Absenden</button>
-    </div>
+<div class="btns">
+    <!-- <input type="submit" id="myBtn2" value="Absenden" /> -->
+    <button id="myBtn2" title="Absenden">Absenden</button>
+</div>
 
 
-    <div id="err"></div>
+<div id="err"></div>
 
-    <div id="success"></div>
-
-
-    <section class="footer">
-        <figure>
-            <img src="/img/Bild_10.jpg"
-                alt="/img/Bild_7.jpg"
-                class="header">
-            <!--             <figcaption></figcaption> -->
-        </figure>
-
-    </section>
-
-    <button id="myBtn" title="Go to top">Top &#8593
-    </button>
-
-</html>
+<div id="success"></div>
