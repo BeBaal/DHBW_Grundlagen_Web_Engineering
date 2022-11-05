@@ -1,3 +1,9 @@
+/**
+ * Dieses Skript handelt die Funktionalität der Application. Unter anderem
+ * findet hier die Kommunikation mit der Datenbank, das Senden/Empfangen von
+ * HTML Requests sowie die Authentifikation statt.
+ */
+
 // Imports
 const express = require('express');
 const db = require('./db/db');
@@ -5,13 +11,13 @@ const app = express();
 require('dotenv').config();
 const basicAuth = require('basic-auth');
 
-// Setting Data for Test purposes
-const firstname = 'Max';
-const lastname = 'Mustermann';
-const mail = 'Max.Mustermann@web.de';
-const tel = '0594 8749 49499';
-const beginnDate = '01.08.2022';
-const message = 'Initialisiert beim Start des Servers';
+// Variable declaration
+let firstname;
+let lastname;
+let mail;
+let tel;
+let beginnDate;
+let message;
 let contactArray = [
   firstname,
   lastname,
@@ -28,24 +34,28 @@ main();
 
 // Following ist the function declaration
 
-/* Send Mail functionality */
+
 /**
+ * This function is responsible for sending emails with the contact information
+ * which was entered in the frontend.
  *
  * @param {string} firstname
  * @param {string} lastname
  * @param {string} mail
  * @param {string} tel
- * @param {string} beginnDate
+ * @param {string} beginDate
  * @param {string} message
  */
-function sendMail(firstname, lastname, mail, tel, beginnDate, message) {
-  if (
+function sendMail(firstname, lastname, mail, tel, beginDate, message) {
+  const isInputValid = (
     firstname != null &&
     lastname != null &&
     mail != null &&
     tel != null &&
-    beginnDate != null &&
-    message != null
+    beginDate != null &&
+    message != null);
+
+  if ( isInputValid
   ) {
     // Twilio SendGrid
     const sgMail = require('@sendgrid/mail');
@@ -58,7 +68,7 @@ function sendMail(firstname, lastname, mail, tel, beginnDate, message) {
     // Building your text.
     const text =
       'Es gab für den ' +
-      beginnDate +
+      beginDate +
       '<br> eine neue Anfrage auf der Mietgaragenwebsite von ' +
       firstname +
       '<br>  ' +
@@ -177,7 +187,7 @@ function main() {
         element.lastname,
         element.mail,
         element.tel,
-        element.beginnDate,
+        element.beginDate,
         element.message,
       ];
       contactTable.unshift(contactArray);
@@ -218,7 +228,6 @@ function main() {
     );
 
     /* Send Mail to a number */
-    console.log('Sending Message'); // Debugging Code
     sendMail(firstname, lastname, mail, tel, beginDate, message);
   });
 }

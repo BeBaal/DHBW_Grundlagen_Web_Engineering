@@ -10,6 +10,7 @@
 window.addEventListener('hashchange', function() {
   /* Do this when Absenden Button is pushed */
   document.getElementById('myBtn2').addEventListener('click', function() {
+    console.log('Button was clicked');
     // Get values from innerHTML
     const firstname = document.getElementById('firstname').value;
     const lastname = document.getElementById('lastname').value;
@@ -39,8 +40,16 @@ window.addEventListener('hashchange', function() {
   ) {
     const confirmation = document.getElementById('confirmation').value;
 
+    // Resett error and success message
+    let notifySuccess = document.getElementById('err');
+    notifySuccess.innerHTML = '';
+    notifySuccess.style.display = 'none';
+    let notifyError = document.getElementById('success');
+    notifyError.innerHTML = '';
+    notifyError.style.display = 'none';
+
     // Check if empty and valid
-    isInputValid =
+    isInputValid = (
       firstname != null &&
       lastname != null &&
       mail != null &&
@@ -56,14 +65,15 @@ window.addEventListener('hashchange', function() {
       document.getElementById('tel').checkValidity() &&
       document.getElementById('b_date').checkValidity() &&
       document.getElementById('message').checkValidity() &&
-      document.getElementById('confirmation').checkValidity();
+      document.getElementById('confirmation').checkValidity());
+
 
     if (isInputValid) {
       /* Message for successful data entry */
-      const notify = document.getElementById('success');
-      notify.innerHTML =
+      notifySuccess = document.getElementById('success');
+      notifySuccess.innerHTML =
       'Vielen Dank für Ihre Anfrage. Wir kontaktieren Sie in Kürze.';
-      notify.style.display = 'block';
+      notifySuccess.style.display = 'block';
 
       // sending the data to backend
       fetch('/KontaktformularDaten', {
@@ -76,17 +86,17 @@ window.addEventListener('hashchange', function() {
           lastname,
           mail,
           tel,
-          b_date: beginDate,
+          beginDate,
           message,
         }),
       });
     } else {
       /* message for unsuccessful data entry */
-      const notify = document.getElementById('err');
-      notify.innerHTML =
+      notifyError = document.getElementById('err');
+      notifyError.innerHTML =
         'Bitte kontrollieren Sie Ihre Eingabe. Die rot markierten Felder' +
         'müssen angepasst werden und das Textfeld darf nicht leer sein.';
-      notify.style.display = 'block';
+      notifyError.style.display = 'block';
     }
   }
-});
+}, {once: true});
