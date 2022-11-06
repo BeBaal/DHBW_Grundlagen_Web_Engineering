@@ -4,7 +4,6 @@
   "description": "Das ist eine Website für Mietgaragen.",
   "main": "server.js",
   "scripts": {
-    "start": "sendgrid.env",
     "test": "jest"
   },
   "keywords": [
