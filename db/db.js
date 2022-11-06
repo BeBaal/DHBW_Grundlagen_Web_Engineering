@@ -52,7 +52,7 @@ exports.initialize = async () => {
  * @param {string} lastname
  * @param {string} mail
  * @param {string} tel
- * @param {string} beginnDate
+ * @param {string} beginDate
  * @param {string} message
  * @return {(empty|contactRequest)} returns either empty or contactRequest
  */
@@ -61,7 +61,7 @@ exports.createContactRequest = async (
     lastname,
     mail,
     tel,
-    beginnDate,
+    beginDate,
     message,
 ) => {
   /** Prüft ob die Eingabeparameter nicht leer sind. Doppelte Prüfung sollte
@@ -72,7 +72,7 @@ exports.createContactRequest = async (
     lastname == null &&
     mail == null &&
     tel == null &&
-    beginnDate == null &&
+    beginDate == null &&
     message == null
   ) {
     console.error(
@@ -82,7 +82,7 @@ exports.createContactRequest = async (
         lastname,
         mail,
         tel,
-        beginnDate,
+        beginDate,
         message,
     );
     return;
@@ -98,7 +98,7 @@ exports.createContactRequest = async (
     lastname: lastname,
     mail: mail,
     tel: tel,
-    beginnDate: beginnDate,
+    beginDate: beginDate,
     message: message,
     created: date,
     updated: date,

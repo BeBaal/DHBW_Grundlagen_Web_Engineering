@@ -1,97 +1,95 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mietgaragen Emsland</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mietgaragen Emsland</title>
 
-        <link rel="stylesheet" href="/css/Styles.css">
-        <link rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-            integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="crossorigin=""
-            />
-        <Cache-Control: max-age=0></Cache-Control:>
-    </head>
-
-
-    <body>
-        <section class="header">
-            <header>
-                <figure>
-                    <img src="/img/Bild_7.jpg"
-                        alt="Pictures of Mietgaragen">
-                    <figcaption>100€ Netto im Monat pro Einheit inkl. XX KW
-                        Strom
-                        &diams; ca 15qm pro Garage &diams; 24 Stunden
-                        zugänglich
-                        und
-                        viedeoüberwacht &diams; Lagerflächen flexibel nach
-                        Bedarf
-                        erweiterbar </figcaption>
-                </figure>
-                <nav class="topnav">
-                    <ul>
-                        <a href="#Startseite">Startseite</a>
-                        <a href="#FAQ">FAQ</a>
-                        <a href="#Fotos">Fotos</a>
-                        <a href="#Kontaktformular">Kontaktformular</a>
-                        <a href="#Impressum">Impressum</a>
-                        <a href="#Datenschutz">Datenschutz</a>
-                    </ul>
-                </nav>
-            </header>
-        </section>
+    <link rel="stylesheet" href="/css/Styles.css">
+    <link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="crossorigin=""
+      />
+    <script src="/Skripte/SinglePageApp.js"></script>
+    <script src="/Skripte/IncludeHTML.js"></script>
+    <script src="/Skripte/TopButton.js"></script>
+    <script src="/Skripte/Slideshow.js"></script>
+    <script src="/Skripte/GetFormData.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
+    <!-- Muss nach dem fremden Map Skript geladen werden -->
+    <script src="/Skripte/Map.js"></script>
+    <Cache-Control: max-age=0></Cache-Control:>
+  </head>
 
 
-        <section id="Startseite">
-            <div include-html="Startseite"></div>
-            <div id="map"></div>
-        </section>
+  <body>
+    <section class="header">
+      <header>
+        <figure>
+          <img src="/img/Bild_7.jpg"
+            alt="Pictures of Mietgaragen">
+          <figcaption>100€ Netto im Monat pro Einheit inkl. XX KW
+            Strom
+            &diams; ca 15qm pro Garage &diams; 24 Stunden
+            zugänglich
+            und
+            viedeoüberwacht &diams; Lagerflächen flexibel nach
+            Bedarf
+            erweiterbar </figcaption>
+        </figure>
+        <nav class="topnav">
+          <ul>
+            <a href="#Startseite">Startseite</a>
+            <a href="#FAQ">FAQ</a>
+            <a href="#Fotos">Fotos</a>
+            <a href="#Kontaktformular">Kontaktformular</a>
+            <a href="#Impressum">Impressum</a>
+            <a href="#Datenschutz">Datenschutz</a>
+          </ul>
+        </nav>
+      </header>
+    </section>
 
-        <section id="FAQ">
-            <div include-html="FAQ"></div>
-        </Section>
 
-        <section id="Fotos">
-            <div include-html="Fotos"></div>
+    <section id="Startseite">
+      <div include-html="Startseite"></div>
+      <div id="map"></div>
+    </section>
 
-        </section>
+    <section id="FAQ">
+      <div include-html="FAQ"></div>
+    </Section>
 
-        <section id="Kontaktformular">
-            <div include-html="Kontaktformular"></div>
-        </section>
+    <section id="Fotos">
+      <div include-html="Fotos"></div>
+    </section>
 
-        <section id="Impressum">
-            <div include-html="Impressum"></div>
-        </section>
+    <section id="Kontaktformular">
+      <div include-html="Kontaktformular"></div>
+    </section>
 
-        <section id="Datenschutz">
-            <div include-html="Datenschutz"></div>
-        </section>
+    <section id="Impressum">
+      <div include-html="Impressum"></div>
+    </section>
 
-        <footer>
-            <section class="footer">
-                <figure>
-                    <img src="/img/Bild_10.jpg"
-                        alt="/img/Bild_7.jpg"
-                        class="header">
-                </figure>
-            </section>
-        </footer>
-    </body>
+    <section id="Datenschutz">
+      <div include-html="Datenschutz"></div>
+    </section>
+    <footer>
+      <section class="footer">
+        <figure>
+          <img src="/img/Bild_10.jpg"
+            alt="/img/Bild_7.jpg"
+            class="header">
+        </figure>
 
-    <button id="myBtn" title="Go to top">Top &#8593
-    </button>
+      </section>
+      <button id="myBtn" title="Go to top">Top &#8593
+      </button>
+    </footer>
+
+  </body>
+
 
 </html>
-
-
-<script src="/Skripte/SinglePageApp.js"></script>
-<script src="/Skripte/IncludeHTML.js"></script>
-<script src="/Skripte/TopButton.js"></script>
-<script src="/Skripte/Slideshow.js"></script>
-<script src="/Skripte/GetFormData.js"></script>
-<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="crossorigin=""></script>
-<!-- Muss nach dem fremden Map Skript geladen werden -->
-<script src="/Skripte/Map.js"></script>

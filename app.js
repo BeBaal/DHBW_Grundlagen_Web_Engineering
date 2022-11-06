@@ -61,7 +61,12 @@ function sendMail(firstname, lastname, mail, tel, beginDate, message) {
     const sgMail = require('@sendgrid/mail');
 
     // Set API Key in enviromentvariable out of .env file
-    sgMail.setApiKey(process.env.SECRET_KEY);
+    try {
+      sgMail.setApiKey(process.env.SECRET_KEY);
+    } catch (error) {
+      sgMail.setApiKey(process.env.API_KEY_SENDGRID);
+    }
+
 
     // ToDo change for heroku
 
@@ -174,13 +179,13 @@ function main() {
   // Send back Contactrequests for html table when authorization is correct
   app.get('/KontaktformularDaten', auth, async (req, res) => {
     // Get Data from database
-    const contactRequest = await db.getContactRequests();
+    const contactRequests = await db.getContactRequests();
 
     // Reset Table
     contactTable = [];
 
     // fill Table with Arrays
-    contactRequest.forEach((element) => {
+    contactRequests.forEach((element) => {
       // Fill Array with relevant data
       contactArray = [
         element.firstname,
