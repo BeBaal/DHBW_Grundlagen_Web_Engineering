@@ -41,7 +41,7 @@ describe('Test the different http response codes on all response paths', () => {
 
   test('Response on the GET method /KontaktformularDaten', async () => {
     const response = await request(app).get('/KontaktformularDaten');
-    expect(response.statusCode).toBe(200);
+    expect(response.statusCode).toBe(401);
   });
 
   test('Response on the GET method /Anfragen', async () => {
